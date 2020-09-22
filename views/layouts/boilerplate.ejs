@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Custom fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"  rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  
+  <!-- Custom styles for this template-->
+  <link href="/stylesheets/great-friend.css" rel="stylesheet">
+  <link href="/stylesheets/additionalfunc.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style_2.css">
+  <% if(title && (title === 'All Topics')){ %>
+  <link rel="stylesheet" href="/stylesheets/tostyle.css">  
+  <% } %>
+  </head>
+  <body id="page-top">
+    
+  	<% include ../partials/navbar %>
+  	<% include ../partials/flash-messages %>
+    <%- body -%>
+    <% include ../partials/footer %>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/javascripts/great-friend.js"></script>
+    <script src="/javascripts/functionalities.js"></script>
+  <% if(title && (title === 'All Topics')){ %>
+    <script src="/javascripts/topic.js"></script>    
+  <% } %>
+
+<!--         <script>
+    $('#create_topic_name').keyup(function () {
+      var characterCount = $(this).val().length,
+      current = $('#current_topic_characters'),
+      maximum = $('#maximum_topic_characters'),
+      theCount = $('#the_count_topic_characters');
+      var maxlength = $(this).attr('maxlength');
+      var changeColor = 0.75 * maxlength;
+      current.text(characterCount);
+
+      if (characterCount > changeColor && characterCount < maxlength) {
+        current.css('color', '#FF4500');
+        current.css('fontWeight', 'bold');
+      }
+      else if (characterCount >= maxlength) {
+        current.css('color', '#B22222');
+        current.css('fontWeight', 'bold');
+      }
+      else {
+        var col = maximum.css('color');
+        var fontW = maximum.css('fontWeight');
+        current.css('color', col);
+        current.css('fontWeight', fontW);
+      }
+    });
+    </script> -->
+     <!-- The slashes are particularly important for templates to proper;y work in all views -->
+  </body>
+</html>

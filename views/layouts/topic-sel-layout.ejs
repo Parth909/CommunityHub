@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<title><%= title %></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"  rel="stylesheet">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/great-friend.css" rel="stylesheet">
+    <link href="/stylesheets/additionalfunc.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style_2.css">
+    <link rel="stylesheet" href="/stylesheets/tostyle.css">
+
+
+</head>
+<body id="page-top">
+	<% include ../partials/navbar %>
+<!--     <div class="horizontal-scrollbar mx-auto d-sm-none" >
+        <div class="scroller scroller-left"><i class="fas fa-chevron-left" style="color:#00b7ff;"></i></div>
+        <div class="scroller scroller-right"><i class="fas fa-chevron-right" style="color:#00b7ff;"></i></div>
+        <div class="sub-nav-optn-wrapper">
+            <ul class="nav nav-tabs list" id="myTab" style="border:1px solid #00b7ff">
+              <a href="#home"><li class="sub-nav">home1</li></a>
+              <div class="topbar-divider-black d-sm-block"></div>
+              <a href="#profile"><li class="sub-nav">home2</li></a>
+              <div class="topbar-divider-black d-sm-block"></div>
+              <a href="#messages"><li class="sub-nav">home3</li></a>
+              <div class="topbar-divider-black d-sm-block"></div>
+              <a href="#settings"><li class="sub-nav">home4</li></a>
+              <div class="topbar-divider-black d-sm-block"></div>
+              <a href="#profile"><li class="sub-nav">home5</li></a>
+              <div class="topbar-divider-black d-sm-block"></div>
+              <a href="#messages"><li class="sub-nav">home6</li></a>
+          </ul>
+      </div>
+
+    </div> -->
+    
+    <% include ../partials/flash-messages %>
+<!--     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div -->
+    
+    <div class="row mx-small mx-md-2">
+        <!-- <div class="col-lg-1"> supporting div</div> -->
+        <div class="col-sm-12 col-md-6 col-lg-4 pr-md-1 b-r-2">
+            <!-- contains topic related things-->
+
+          <%  if(leftvar === 'leftSectMenu'){ %>
+            <div class="leftsectMenu">
+              <% include ../partials/topics/leftsectMenu %>
+            </div>
+            <div class="topic-info d-none">
+              <!-- include ../partials/posts/something  -->
+            </div>
+          <% }else if(leftvar === 'settingsMenu'){ %>
+
+          <% } %>
+
+        </div>
+        <div class="col-sm-10 col-md-6 col-lg-4 pr-md-1 mx-sm-auto">
+
+
+        
+            <div class="card mb-4 fill-unifiq-bg-color" style="border:none;">
+
+
+                <%- body -%>
+                
+
+            </div>
+
+        </div>
+        <div class="col-sm-none d-sm-none d-lg-block col-lg-4 b-r-2">
+            <!-- contain general things like trends -->
+            <% include ../partials/topics/rightsect %> 
+        </div>
+        <!-- <div class="col-md-none col-lg-1 b-2"> supporting div</div>  -->
+    </div>
+
+    <% include ../partials/footer %>
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/javascripts/functionalities.js"></script>
+    <script src="/javascripts/functionalities_2.js"></script>
+    <script src="/javascripts/great-friend.js"></script>
+    <script src="/javascripts/post-edit.js"></script>
+    <script src="/javascripts/post-show.js"></script>
+    <script src="/javascripts/ajax-jquery/posts.js"></script>
+    <script src="/javascripts/ajax-jquery/topics.js"></script>
+    <script src="/javascripts/jquery-custom-file-input.js"></script>
+    <script src="/javascripts/topic.js"></script>
+    <script src="/javascripts/vid.js"></script>
+    <script src="/vendor/emoji/emoji.min.js"></script>
+    <script src="/javascripts/emoji.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-button@latest/dist/index.min.js"></script>
+
+</body>
+</html>

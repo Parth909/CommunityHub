@@ -1,0 +1,333 @@
+<div id="leftsect" class="bg-transparent">
+
+  <div class="card-body bg-transparent p-0 m-0" style="border-radius: 10px;">
+
+    <div class="per-card-1 bg-transparent pb-0 mb-0">
+
+    				<!--another dropdown-->
+				<!-- left-sect-drop-->
+				<div class="left-sect-back">
+					<!-- <div class="dropdown show"> -->
+						  <a class="btn btn-block tog-left-main-menu btn-go-back dropdown-toggle py-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  	<i class="fas fa-2x fa-long-arrow-alt-left"></i>
+						    <!-- <i class="fas fa-2x fa-arrow-circle-down"></i> -->
+						  </a>
+
+						  <!-- <div class="overflow-hidden">
+							  <div class="dropdown-menu left-sect-dropdown shadow bg-custom text-center p-0" aria-labelledby="dropdownMenuLink" style="width:100%;color:white;">
+							    <a class="dropdown-item l-sect text-white-600 left-turn-sect-1-btn py-2" href="#">Topic Info</a>
+	        						<hr  style="border:0.5px solid #ffffff;" class="m-0 p-0">
+
+							    <a class="dropdown-item l-sect text-white-600 left-turn-sect-2-btn py-2" href="#">Your Menu</a>
+	        						<hr  style="border:0.5px solid #ffffff;" class="m-0 p-0">
+								
+							    <a class="dropdown-item l-sect text-white-600 left-turn-sect-3-btn py-2" href="#">Create your new unique topic</a>
+							  </div>
+						  </div> -->
+					<!-- </div> -->
+				</div>
+
+      <div class="parent-container d-block bg-custom-black b-r-2">
+
+
+				<!-- left-sect-drop end-->
+<div style="border:0px;" >
+      			<div class="left-turn-sect-1 bg-transparent">
+
+      			<div class="d-flex align-items-end">
+	            <!-- <img class="background-image" src="https://images.unsplash.com/photo-1578434223342-ce18f6da5683?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"> -->
+	            <!-- <img class="usr-pic" src="/images/background.jpeg" alt="Avatar"> -->
+
+	            <img class="topic-back-image" src="/images/wall4.jpg"  style="border-radius:0.5rem;">
+	            <img class="topic-pic" src="/images/settings.svg" alt="Avatar">
+	            <h3 class="topic-name"><%= topic.title %></h3>
+
+	            </div>
+
+		        <div class="px-3 topic-specs" style="color:#000000">
+		            <div class="mt-1">
+		                <span class="follow-topic float-right" style="color:white;">
+		                	<form action="/topics/<%= topic._id %>/followtopic" method="POST" id="fol-topic-form">
+		                	<% if (currentUser && topic.followers.some(function (follower) { 
+                        		return follower.equals(currentUser._id);
+                    		})) { %>
+		                		<button class="btn btn-sm follow-topic-btn btn-follow-topic px-1 py-1 mb-1"><i class="fas fa-lg fa-check-square"></i> Following
+                                        <div class="disp-loader d-inline-block">
+                                            
+                                        </div>
+		                		</button>
+		                	<% }else{ %>
+		                		<button class="btn btn-sm follow-topic-btn btn-follow-topic px-1 py-1 mb-1"><i class="fas fa-lg fa-check-square"></i> Follow Topic
+                                        <div class="disp-loader d-inline-block">
+                                            
+                                        </div>
+		                		</button>
+		                	<% } %>
+		                	</form>
+		                </span>	
+<!-- <br> -->
+<!-- <br> -->
+		                <span class="topic-name-2"><%= topic.title %></span>
+
+		                <br>
+		                <span class="topic-desc white-gray"><%= topic.tagline %></span>
+		                <br>
+		                <div class="pt-3">
+		                <span class="white-gray"> Tags - </span>
+						</div>
+
+		                <div class="topic-index-tags py-1 float-left text-center">
+
+		                	<% for(let tag of topic.tags){ %>
+			      			<div class="d-inline-flex single-tag l-top px-1 py-1 mb-1">
+			      				<i class="fas fa-circle pt-0_5 tag-circle"></i> 
+			      				<span class="pl-1"><%= tag %></span>
+			      			</div>
+			      			<% } %>
+			      			
+			      			<!-- <br> -->
+
+			      		</div>
+
+		                <!-- table section -->
+		          
+							   
+							    <div class="row text-center topic-row my-2">
+								    <div class="col-xs-6 topic-col-1 py-1">
+								      	<span class="in-cell-head white-gray">followers</span><br>
+								      	<span class="in-cell-no"><%= topic.followers.length %></span>
+								    </div>
+								    <div class="col-xs-6 py-1">
+								      	<span class="in-cell-head white-gray">posts</span><br>
+								      	<span class="in-cell-no"><%= topic.posts.length %></span>
+								    </div>
+								</div>	
+							    
+						
+
+		                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+		                <span>
+
+		                	<span class="created-by-label">Created By - </span>
+		                	<br>
+		                	<a href="/profile/<%=topic.owner._id%>" class="topic-cr-name">
+	        					<span>
+	        						<img src="<%=topic.owner.profimage.secure_url%>" class="topic-cr-image"/>
+	      						</span><%= topic.owner.username %>	
+	      					</a>
+		                </span>
+		                <% } %>
+		                <br>
+		                <!-- <span id="user-status"> Innovator and Creator at Unifiq</span> -->
+		                <span class="topic-desc white-gray"> 
+							Your Title -  
+							<span class="topic-title ml-1">Avogadro's No</span>
+						</span>
+						<br>
+						<span class="topic-desc white-gray"> Your Contribution </span>
+						<br>
+						
+
+		            </div>
+		            
+		            <div>
+							    <div class="row text-center topic-row my-2">
+								    <div class="col-xs-6 topic-col-1 py-1">
+								      	<span class="in-cell-head white-gray">Your Posts</span><br>
+								      	<span class="in-cell-no">
+
+										
+										<%= myPosts.length %>
+
+								      	</span>
+								    </div>
+								    <div class="col-xs-6 py-1">
+								      	<span class="in-cell-head white-gray">Your Shares</span><br>
+								      	<span class="in-cell-no"><%= myShares.length %></span>
+								    </div>
+								</div>	
+		                
+		            </div>
+
+	        	</div><!-- topic-specs end -->
+	            		        
+	        </div><!-- turning section one end-->
+</div>
+<div style="border:0px;">
+
+	        <div class="left-turn-sect-2 d-none"><!--turning section two-->
+
+      			<div class="d-flex align-items-end">
+	            <!-- <img class="background-image" src="https://images.unsplash.com/photo-1578434223342-ce18f6da5683?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"> -->
+	            <!-- <img class="usr-pic" src="/images/background.jpeg" alt="Avatar"> -->
+
+	            <img class="topic-back-image" src="/images/cover1.jpg"  style="border-radius:0.5rem;">
+	            <img class="topic-pic" src="<%=user.profimage.secure_url%>" alt="Avatar">
+	            <h3 class="topic-name"> Adventure </h3>
+
+	            </div>
+
+		        <div class="px-3 topic-specs" style="color:#000000">
+		            <div class="mt-1">
+		                            
+		                <span class="topic-name-2"> Adventure-22 </span>
+		                <span class="follow-topic float-right">
+		                	
+		                		<a class="btn btn-sm btn-follow-topic px-1 py-1 mb-1" id="fol-top"><i class="fas fa-lg fa-check-square"></i> Follow Topic</a>
+		                	
+		                </span>
+		                <br>
+		                <span class="topic-desc white-gray"> Explore this great adventurous section  </span>
+
+		                <!-- table section -->
+		          
+							   
+							    <div class="row text-center topic-row my-2">
+								    <div class="col-xs-6 topic-col-1 py-1">
+								      	<span class="in-cell-head white-gray">followers</span><br>
+								      	<span class="in-cell-no">7M</span>
+								    </div>
+								    <div class="col-xs-6 py-1">
+								      	<span class="in-cell-head white-gray">posts</span><br>
+								      	<span class="in-cell-no">100M</span>
+								    </div>
+								</div>	
+							    
+						
+
+		                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+		                <span>
+
+		                	<span style="color: #8c8c8c;font-weight: 700;">Created By:-</span>
+		                	<br>
+		                	<a href="/profile/<%=user._id%>" class="topic-cr-name">
+	        					<span>
+	        						<img src="<%=user.profimage.secure_url%>" class="topic-cr-image"/>
+	      						</span><%= user.username %>	
+	      					</a>
+		                </span>
+		                <% } %>
+		                <br>
+		                <!-- <span id="user-status"> Innovator and Creator at Unifiq</span> -->
+		                <span class="topic-desc white-gray"> 
+							Your Title :-  
+							<span class="topic-title ml-1">Avogadro's No</span>
+						</span>
+						<br>
+						<span class="topic-desc white-gray"> Your Contribution </span>
+						<br>
+						
+
+		            </div>
+		            
+		            <div>
+							    <div class="row text-center topic-row my-2">
+								    <div class="col-xs-6 topic-col-1 py-1">
+								      	<span class="in-cell-head white-gray">Your Posts</span><br>
+								      	<span class="in-cell-no">100</span>
+								    </div>
+								    <div class="col-xs-6 py-1">
+								      	<span class="in-cell-head white-gray">Your XP</span><br>
+								      	<span class="in-cell-no">2K</span>
+								    </div>
+								</div>	
+		                
+		            </div>
+
+	        	</div><!-- topic-specs end -->
+	            		        
+	        </div><!-- turning section two end-->
+</div>
+<div style="border:0px;">
+
+	        <div class="left-turn-sect-3 d-none"><!--turning section two-->
+
+      			<div class="d-flex align-items-end">
+	            <!-- <img class="background-image" src="https://images.unsplash.com/photo-1578434223342-ce18f6da5683?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"> -->
+	            <!-- <img class="usr-pic" src="/images/background.jpeg" alt="Avatar"> -->
+
+	            <img class="topic-back-image" src="/images/cover1.jpg"  style="border-radius:0.5rem;">
+	            <img class="topic-pic" src="<%=user.profimage.secure_url%>" alt="Avatar">
+	            <h3 class="topic-name"> Adventure </h3>
+
+	            </div>
+
+		        <div class="px-3 topic-specs" style="color:#000000">
+		            <div class="mt-1">
+		                            
+		                <span class="topic-name-2"> Adventure-33 </span>
+		                <span class="follow-topic float-right">
+		                	
+		                		<a class="btn btn-sm btn-follow-topic px-1 py-1 mb-1" id="fol-top"><i class="fas fa-lg fa-check-square"></i> Follow Topic</a>
+		                	
+		                </span>
+		                <br>
+		                <span class="topic-desc white-gray"> Explore this great adventurous section  </span>
+
+		                <!-- table section -->
+		          
+							   
+							    <div class="row text-center topic-row my-2">
+								    <div class="col-xs-6 topic-col-1 py-1">
+								      	<span class="in-cell-head white-gray">followers</span><br>
+								      	<span class="in-cell-no">7M</span>
+								    </div>
+								    <div class="col-xs-6 py-1">
+								      	<span class="in-cell-head white-gray">posts</span><br>
+								      	<span class="in-cell-no">100M</span>
+								    </div>
+								</div>	
+							    
+						
+
+		                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+		                <span>
+
+		                	<span style="color: #8c8c8c;font-weight: 700;">Created By:-</span>
+		                	<br>
+		                	<a href="/profile/<%=user._id%>" class="topic-cr-name">
+	        					<span>
+	        						<img src="<%=user.profimage.secure_url%>" class="topic-cr-image"/>
+	      						</span><%= user.username %>	
+	      					</a>
+		                </span>
+		                <% } %>
+		                <br>
+		                <!-- <span id="user-status"> Innovator and Creator at Unifiq</span> -->
+		                <span class="topic-desc white-gray"> 
+							Your Title :-  
+							<span class="topic-title ml-1">Avogadro's No</span>
+						</span>
+						<br>
+						<span class="topic-desc white-gray"> Your Contribution </span>
+						<br>
+						
+
+		            </div>
+		            
+		            <div>
+							    <div class="row text-center topic-row my-2">
+								    <div class="col-xs-6 topic-col-1 py-1">
+								      	<span class="in-cell-head white-gray">Your Posts</span><br>
+								      	<span class="in-cell-no">100</span>
+								    </div>
+								    <div class="col-xs-6 py-1">
+								      	<span class="in-cell-head white-gray">Your XP</span><br>
+								      	<span class="in-cell-no">2K</span>
+								    </div>
+								</div>	
+		                
+		            </div>
+
+	        	</div><!-- topic-specs end -->
+	            		        
+	        </div><!-- turning section three end-->
+		</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

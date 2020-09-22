@@ -1,0 +1,255 @@
+<!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-custom-black">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span class="text-white" aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-common-primary btn-sm" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content bg-custom-black">
+        <div class="modal-header text-ex-white">
+          <h5 class="modal-title" id="exampleModalLabel">Sure you want to delete ?</h5>
+          <button class="btn btn-danger btn-sm ml-1  py-0 mt-1" type="button" data-dismiss="modal" aria-label="Close">
+            <span class="text-ex-b-white" aria-hidden="true"><i class="fas fa-times"></i></span>
+          </button>
+        </div>
+        <div class="modal-footer">
+     <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm" id="sureDelete">Delete</button>
+    <button type="button" data-dismiss="modal" class="btn btn-secondary btn-sm">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="error-success-dialog" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content bg-custom-black">
+        <div class="modal-header text-ex-white py-2">
+          <h6 class="modal-title" id="exampleModalLabel-e-s">You can't perform this action</h6>
+          <button class="btn btn-danger btn-sm py-0 ml-2" type="button" data-dismiss="modal" aria-label="Close">
+            <!-- <i class="fas fa-times text-ex-b-white px-1"></i> -->
+            &times;
+          </button>
+        </div>
+<!--         <div class="modal-footer">
+     <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm" id="sureDelete">Delete</button>
+    <button type="button" data-dismiss="modal" class="btn btn-secondary btn-sm">Cancel</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+<!-- Loading Info Div -->
+
+  <div class="modal fade" id="processing-info" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content processing-info-content bg-custom-black">
+        <div class="text-center modal-header text-ex-white">
+<!--           <h5 class="modal-title" id="exampleModalLabel">Sure you want to delete ?</h5>
+          <button class="btn btn-danger btn-sm ml-1  py-0 mt-1" type="button" data-dismiss="modal" aria-label="Close">
+            <span class="text-ex-b-white" aria-hidden="true"><i class="fas fa-times"></i></span>
+          </button> -->
+          <div class="modal-title d-block loading-dots-div w-100">
+            <div class="loading-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer text-center">
+            <div class="d-block processing-msg-to-user">
+              Hang on! Posting 
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<!--   <div class="modal fade" id="videoPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg video-upload-div" role="document">
+      <div class="modal-content video-content bg-custom-black">
+
+        <div class="modal-body">
+          <label for="post-create-video" class="btn btn-upload-video hover-transparent-gray">
+              <span><img src="/images/video-camera.svg" class="s-left-prof-icons"></span>
+              <span class="upload-video-title">Select Video</span>
+          </label>
+          <input id="post-create-video" class="d-none multi-video" name="postVideo" type="file" accept="video/mp4,video/x-m4v,video/*"> 
+
+          <div class="video-pr-div">
+
+          </div>
+
+          </div>
+        
+        <div class="modal-footer bg-custom-black py-1">
+          <a class="dec-none w-100" href="#">
+            <button class="btn btn-transparent-gray submit-vid w-100" data-dismiss="modal">
+              Upload
+            </button>
+          </a>
+          <button class="btn btn-transparent-gray cancel-vid" type="button" data-dismiss="modal">Cancel</button>
+          
+        </div>
+
+      </div>
+
+      </div>
+    </div> -->
+
+  <div class="modal fade" id="file-type-selection" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content bg-custom-black">
+
+        <div class="modal-body">
+
+        <div class="d-block text-white-600 py-2">
+          <div class="row">
+            <div class="col-md-3 pl-2 text-left mb-1">
+              <button type="button" data-dismiss="modal" class="px-2 py-1 b-r-5 btn btn-transparent-gray">
+                <i class="text-gray-500 fas fa-lg fa-arrow-left"></i>
+              </button>
+            </div>
+            <div class="col-md-9 text-center pr-md-5">
+              <span><h4 class="modal-title" id="exampleModalLabel-e-s">Add in the post</h4></span>
+            </div>
+          </div>
+        </div>
+
+          <div class="post-files-optn-div">
+
+            <div class="row pt-2">
+              <div class="col-12 col-md-6 pb-2 px-1">
+
+<!--               <label for="post-create-images" class="text-left btn btn-transparent-gray">
+                      <span><img src="/images/gallery.svg" class="s-left-prof-icons"></span>
+                      <span class=" post-files-title">Select Images</span>
+              </label>
+              <input id="post-create-images" class="d-none" accept="images/*" type="file" multiple name="postImages"> -->
+
+                <button class="text-left btn btn-block btn-select-img btn-transparent-gray">
+                    <span><img src="/images/gallery.svg" class="s-left-prof-icons"></span>
+                    <span class=" post-files-title">Images</span>
+                </button>              
+              </div>
+              <div class="col-12 col-md-6 pb-2 px-1">
+                <button class="text-left btn btn-block btn-select-vid btn-transparent-gray">
+                    <span><img src="/images/video-camera.svg" class="s-left-prof-icons"></span>
+                    <span class=" post-files-title">Video</span>
+                </button>              
+              </div>
+
+              <div class="col-12 col-md-6 pb-2 px-1">
+                <button class="btn text-left btn-block btn-select-file btn-transparent-gray">
+                    <span><img src="/images/tag_people.svg" class="s-left-prof-icons"></span>
+                    <span class="post-files-title">Tag People</span>
+                </button>              
+              </div>
+
+              <div class="col-12 col-md-6 pb-2 px-1">
+                <button class="btn text-left btn-block btn-select-file btn-transparent-gray">
+                    <span><img src="/images/upload_gif.svg" class="s-left-prof-icons"></span>
+                    <span class="post-files-title">Upload GIF</span>
+                </button>              
+              </div>
+
+              <div class="col-12 col-md-6 pb-2 px-1">
+                <button class="btn text-left btn-block btn-select-file btn-transparent-gray">
+                    <span><img src="/images/location_pin.svg" class="s-left-prof-icons"></span>
+                    <span class="post-files-title">Visits</span>
+                </button>              
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+        
+<!--         <div class="modal-footer bg-custom-black py-1">
+          <a class="dec-none w-100" href="#">
+            <button class="btn btn-transparent-gray submit-vid w-100" data-dismiss="modal">
+              Upload
+            </button>
+          </a>
+          <button class="btn btn-transparent-gray cancel-vid" type="button" data-dismiss="modal">Cancel</button>
+          
+        </div> -->
+
+      </div><!-- modal-content end -->
+<!--         <div class="modal-footer">
+     <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm" id="sureDelete">Delete</button>
+    <button type="button" data-dismiss="modal" class="btn btn-secondary btn-sm">Cancel</button>
+        </div> -->
+      </div>
+    </div>
+
+
+  <!-- Footer -->
+
+<button id="open-button" class="open-button">Open Button</button>
+
+
+  <!-- FOOTER -->
+  <footer class="sticky-footer bg-custom-gray" style="padding-bottom:none;">
+    <div class="container-fluid" style="margin:none">
+    <div class="row">
+      <div class="col-md-3 text-center text-danger my-auto" style="font-weight:500;font-size:1rem">
+        <span>Copyright &copy; 2020 Unifiq, Inc </span>
+      </div>
+      
+      <div class="col-md-9" id="alignwithsize">
+        <a class="text-primary" href="#">Join us</a>
+        <br>
+        <span class="text-black-50"> Contact Us :- </span>
+        <a class="text-primary" href="#"> unifiq@query.com </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <hr id="hr-primary">

@@ -1,0 +1,267 @@
+[
+  {
+   "id":"1",
+   "name":"Technology",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"2",
+   "name":"Science",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"3",
+   "name":"Sports",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"4",
+   "name":"Television",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"5",
+   "name":"Movies",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"6",
+   "name":"Music",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"7",
+   "name":"Nature",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"8",
+   "name":"General",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"9",
+   "name":"History",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"10",
+   "name":"Literature",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"11",
+   "name":"Entertainment",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"12",
+   "name":"Games",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"13",
+   "name":"Food and Drink",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"14",
+   "name":"Educational",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"15",
+   "name":"Business",
+   "parent_id":"0"
+  }, 
+  {
+   "id":"16",
+   "name":"Art and Design",
+   "parent_id":"0"
+  },
+  {
+    "id":"17",
+    "name":"General",
+    "parent_id":"1"
+  },
+  {
+   "id":"18",
+   "name":"Robotics",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"19",
+   "name":"Information Technology",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"20",
+   "name":"Space Technology",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"21",
+   "name":"Consumer Technology",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"22",
+   "name":"Networks",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"23",
+   "name":"Artificial Intelligence",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"24",
+   "name":"Transport Technology",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"25",
+   "name":"Energy Infrastructure",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"26",
+   "name":"Agriculture Technology",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"27",
+   "name":"Medical Technology",
+   "parent_id":"1"
+  }, 
+  {
+   "id":"28",
+   "name":"Research Technology",
+   "parent_id":"1"
+  },
+  {
+    "id":"29",
+    "name":"Superintelligence",
+    "parent_id":"1"
+   },
+   {
+    "id":"30",
+    "name":"General",
+    "parent_id":"2"     
+   },
+   {
+    "id":"31",
+    "name":"Astronomy",
+    "parent_id":"2"
+   },
+   {
+    "id":"32",
+    "name":"Biology",
+    "parent_id":"2"
+   },
+   {
+    "id":"33",
+    "name":"Chemistry",
+    "parent_id":"2"
+   },
+   {
+    "id":"34",
+    "name":"Earth Sciences",
+    "parent_id":"2"
+   },
+   {
+    "id":"35",
+    "name":"Physics",
+    "parent_id":"2"
+   },
+   {
+    "id":"36",
+    "name":"Social Sciences",
+    "parent_id":"2"
+   },
+   {
+    "id":"37",
+    "name":"Behavioural Sciences",
+    "parent_id":"2"
+   },
+   {
+    "id":"38",
+    "name":"Applied Sciences",
+    "parent_id":"2"
+   },
+   {
+    "id":"39",
+    "name":"Health Sciences",
+    "parent_id":"2"
+   },
+   {
+    "id":"40",
+    "name":"General",
+    "parent_id":"3"     
+   },
+   {
+    "id":"41",
+    "name":"Adventure Sports",
+    "parent_id":"3"     
+   },
+   {
+    "id":"42",
+    "name":"Ice/Aquatic Sports",
+    "parent_id":"3"     
+   },
+   {
+    "id":"43",
+    "name":"Strength & Agility Sports",
+    "parent_id":"3"     
+   },
+   {
+    "id":"44",
+    "name":"Ball Sports",
+    "parent_id":"3"     
+   },
+   {
+    "id":"45",
+    "name":"Extreme Sports",
+    "parent_id":"3"     
+   },
+   {
+    "id":"46",
+    "name":"Mountain Sports",
+    "parent_id":"3"       
+   },
+   {
+    "id":"47",
+    "name":"Motorised Sports",
+    "parent_id":"3"      
+   },
+   {
+    "id":"48",
+    "name":"Field Sports",
+    "parent_id":"3"      
+   },
+   {
+    "id":"49",
+    "name":"Parasports",
+    "parent_id":"3"      
+   },
+   {
+    "id":"50",
+    "name":"Multi Sports",
+    "parent_id":"3"      
+   },
+   {
+    "id":"51",
+    "name":"Martial Arts",
+    "parent_id":"3"      
+   },
+   {
+    "id":"52",
+    "name":"Indoor/Court Sports",
+    "parent_id":"3"           
+   },
+   {
+    "id":"53",
+    "name":"Animal Sports",
+    "parent_id":"3"           
+   }
+ ] 

@@ -1,0 +1,32 @@
+<% layout('layouts/post-layout') -%>
+
+<!-- Card-body starts -->
+
+<div class="card-body bg-custom-black p-0" id="likes-card">
+  <!-- modal styling looks good -->
+  <div class="modal-likes-header">
+    <h6 class="mt-1" style="font-weight:600;">
+      <i class="fas fa-thumbs-up"></i> <%= `${post.likes.length} Like${post.likes.length === 1 ? '' : 's'}` %> 
+    </h6>
+  </div>
+      <div class="modal-body p-0">
+        <table class="table table-striped">
+            <tbody class="text-left">
+            <% post.likes.forEach(function(like) { %>
+              <tr><!--basically likes is an array of [user id's]-->
+                <td><a href="/profile/<%=like._id%>" class="likes-names"><span class="badge"><img src="<%=like.profimage.secure_url%>" class="modal-image"></img></span><%= like.username %></a></td>
+              </tr>
+            <% }); %>
+            <% if (post.likes.length === 0) { %>
+              <tr>
+                <td><em>No likes yet.</em></td>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+      </div>
+    <div class="modal-footer p-1 pb-2 pr-2">
+      <button onclick="javascript:history.go(-1)" type="button" class="btn btn-sm btn-primary" >Back</button>
+    </div>
+</div>
+

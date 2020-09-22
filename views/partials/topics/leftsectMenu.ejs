@@ -1,0 +1,307 @@
+<div class="wrap-rightsect bg-custom-more-black" >
+  
+  <main>
+    
+    <!-- aside.left-sect-aside is given the attribute scroll -->
+    <aside class="text-white-600 left-sect-aside">
+
+<!--       <button type="button" class="btn btn-cancel-right-sect">
+        <i class="fas fa-2x fa-times-circle fa-cancel-right-sect"></i>
+      </button> -->
+
+
+
+
+
+      <div class="right-turn-sect-1">
+        <div class="active-people"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="leftsectMenu">
+
+        <div class="row" id="l-title" title="U Menu">
+          <div class="mx-auto">
+
+<!--           <div  class="left-menu-main-img d-inline-block">
+          <img src="/images/open-menu.svg" alt="user1">
+          </div>
+          <div class="left-menu-main-title d-inline-block">
+            U Menu
+          </div> -->
+
+
+          <div class="row leftsectMenu-nav gen-sharp" title="User Info">
+            <img src="/images/hub_png.png" class="ml-1" alt="user1">
+            <div class="title main-left-title">
+              Hubs
+            </div>          
+          </div>
+
+          </div>
+        </div>
+
+<!--         <a href="/profile/<%=currentUser._id%>" class="dec-none">
+          <div class="row m-md-2 leftsectMenu-nav" title="<%= currentUser.username %>'s Profile">
+            <img src="<%=currentUser.profimage.secure_url%>" alt="user1">
+            <div class="title">
+              <%= currentUser.username %>'s Profile
+            </div>
+          </div>
+        </a> -->
+        <form action="/topics" method="GET">
+          <button for="hangout-hub" type="submit" class="btn btn-dec-none btn-block p-0 m-0">
+          <% if(leftMenuHigh === 'hangout hub'){ %>
+            <div class="hub-active text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% }else{ %>
+            <div class="text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% } %>
+              <!-- Gray color svg images -->  
+              <img src="/images/boostTopic.svg" alt="user1">
+              <div class="title" name="hangout hub">
+                Hangout Hub
+              </div>
+            </div>
+            <input class="d-none" type="text" id="hangout-hub" name="hub_title" value="hangout hub">
+          </button>
+        </form>
+
+        <form action="/topics" method="GET">
+          <button for="comedy-hub" type="submit" class="btn btn-dec-none btn-block p-0 m-0">
+          <% if(leftMenuHigh === 'comedy hub'){ %>
+            <div class="hub-active text-left pl-3 row my-2 m-md-2 p-1  leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% }else{ %>
+            <div class="text-left pl-3 row my-2 m-md-2 p-1  leftsectMenu-nav left-hubs-navs gen-sharp" title="Comedy Hub">
+          <% } %>
+              <!-- Gray color svg images -->  
+              <img src="/images/discoverer.svg" alt="user1">
+              <div class="title" name="comedy hub">
+                Comedy Hub
+              </div>
+            </div>
+            <input class="d-none" type="text" id="comedy-hub" name="hub_title" value="comedy hub">
+          </button>
+        </form>
+
+
+        <form action="/topics" method="GET">
+          <button for="entertainment-hub" type="submit" class="btn btn-dec-none btn-block p-0 m-0">
+          <% if(leftMenuHigh === 'entertainment hub'){ %>
+            <div class="hub-active text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% }else{ %>
+            <div class="text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Entertainment Hub">
+          <% } %>
+              <!-- Gray color svg images -->  
+              <img src="/images/content-creator.svg" alt="user1">
+              <div class="title">
+                Entertainment Hub
+              </div>
+            </div>
+            <input class="d-none" type="text" id="entertainment-hub" name="hub_title" value="entertainment hub">
+          </button>
+        </form>
+
+        <form action="/topics" method="GET">
+          <button for="movie-hub" type="submit" class="btn btn-dec-none btn-block p-0 m-0">
+          <% if(leftMenuHigh === 'movie hub'){ %>
+            <div class="hub-active text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% }else{ %>
+            <div class="text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Movies Hub">
+          <% } %>
+              <!-- Gray color svg images -->  
+              <img src="/images/discoverer.svg" alt="user1">
+              <div class="title">
+                Movies Hub
+              </div>
+            </div>
+            <!-- the value is movie-hub -->
+            <input class="d-none" type="text" id="movie-hub" name="hub_title" value="movie hub">
+          </button>
+        </form>
+
+        <form action="/topics" method="GET">
+          <button for="adventure-hub" type="submit" class="btn btn-dec-none btn-block p-0 m-0">
+          <% if(leftMenuHigh === 'adventure hub'){ %>
+            <div class="hub-active text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% }else{ %>
+            <div class="text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Adventure Hub">
+          <% } %>
+              <!-- Gray color svg images -->  
+              <img src="/images/globe.svg" alt="user1">
+              <div class="title">
+                Adventure Hub
+              </div>
+            </div>
+            <input class="d-none" type="text" id="adventure-hub" name="hub_title" value="adventure hub">
+          </button>
+        </form>
+
+        <form action="/topics" method="GET">
+          <button for="news-hub" type="submit" class="btn btn-dec-none btn-block p-0 m-0">           
+          <% if(leftMenuHigh === 'news hub'){ %>
+            <div class="hub-active text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="Hangout Hub">
+          <% }else{ %>
+            <div class="text-left pl-3 row my-2 m-md-2 p-1 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+          <% } %>
+              <!-- Gray color svg images -->  
+              <img src="/images/network-builder.svg" alt="user1">
+              <div class="title">
+                News Hub
+              </div>
+            </div>
+            <input class="d-none" type="text" id="news-hub" name="hub_title" value="news hub">
+          </button>
+        </form>
+
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg imsges -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+                <a href="/topics" class="dec-none">
+          <div class="row my-2 m-md-2 leftsectMenu-nav left-hubs-navs gen-sharp" title="News Hub">
+            <!-- Gray color svg images -->  
+            <img src="/vendor/fontawesome-free/svgs/solid/newspaper.svg" alt="user1">
+            <div class="title title-hubs">
+              News Hub
+            </div>
+          </div>
+        </a>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+
+
+
+    </aside>
+    
+  </main>
+  
+</div>

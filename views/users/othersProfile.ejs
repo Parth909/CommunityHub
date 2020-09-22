@@ -1,0 +1,788 @@
+<% layout('layouts/profileplate') -%>
+
+<% if(postObjs.length != 0) { %>
+
+
+<div class="topic-posts-list">
+  <% postObjs.forEach(function(post) { %>
+  <div class="card-body pb-1 pt-1 px-2 mb-2" style="border-radius:0.5rem;">
+
+    <div class="per-card-1">
+
+      <div class="parent-container">
+
+        
+
+            <div class="bookmark-div">
+              <% if (currentUser && currentUser.bookmarks.some(function (bookmark) { 
+                return bookmark.equals(post._id);
+              })) { %>
+                <div class="bookmarked-sign ml-2 pl-1">
+                  <i class="fas fa-bookmark"></i> Bookmarked 
+                </div>
+              <% } %>
+            </div>
+        <!-- <div style="color:white;" data-toggle="modal" data-target="#options-modal"> -->
+        <!-- <i class="fas fa-lg fa-ellipsis-h float-right"></i> -->
+
+        <div class="btn-group float-right">
+          
+            <button type="button" class="option-button btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-md fa-ellipsis-h"></i>
+            </button>
+          
+
+          <div class="dropdown-menu dropdown-menu-right">
+
+            <div>
+              <% if(post.shpost || post.shpost === null){ %>
+                <a href="/posts/<%=post._id%>/SHARED_POST" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-expand"></i> Show Full Opinion
+                </a>
+              <% }else{ %>
+                <a href="/posts/<%=post._id%>/POST" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-expand"></i> Show Full Opinion
+                </a>
+              <% } %>
+            </div>
+
+          <% if(currentUser && currentUser._id.equals(post.author._id)) { %>
+            <div>
+              <% if(post.shpost || post.shpost === null){ %>
+                <form action="/posts/<%=post._id%>/SHARED_POST" method="POST" class="text-center py-1 toggle-options del-po-form">
+                  <button type="submit" class="navs-dropdown-item" style="width:100%;"><i class="fas fa-trash-alt"></i> Delete</button>
+
+                </form>
+              <% }else{ %>
+                <form action="/posts/<%=post._id%>/POST" method="POST" class="text-center py-1 toggle-options del-po-form">
+                  <button type="submit" class="navs-dropdown-item" style="width:100%;"><i class="fas fa-trash-alt"></i> Delete</button>
+                </form>
+              <% } %>
+            </div>
+            
+              
+                <div>
+                <%if(post.shpost || post.shpost === null){%>
+                <button type="button" class="toggle-options edit-post-tog dropdown-item text-center py-1" >
+                  <i class="fas fa-pen"></i> Edit
+                </button>
+                <% } else { %>
+                <button type="button" class="toggle-options edit-post-tog dropdown-item text-center py-1" >
+                  <i class="fas fa-pen"></i> Edit
+                </button>
+                <% } %>
+              </div>
+
+          <% } %>
+
+          <% if(post.shpost || post.shpost === null){ %><!--if post contains shared post then it shoulr be added in SharedPost model-->
+            <div>
+              <!-- bookmark form -->
+              <form action="/posts/<%=post._id%>/bookmark/SHARED_POST" method="POST" class="text-center py-1 toggle-options post-bookmark">
+                <!-- if currentUser exists then only further condition will be checked(so there is no chance of error"bookmarks not found") -->
+                <% if (currentUser && currentUser.bookmarks.some(function (bookmark) { 
+                  return bookmark.equals(post._id);
+                })) { %>
+                  <button class="uni-red navs-dropdown-item book-btn" type="submit">
+                    <i class="fas fa-bookmark"></i> Remove Bookmark 
+                  </button>
+                <% } else { %> 
+                <button class="bookmark navs-dropdown-item" type="submit">
+                  <i class="fas fa-bookmark book-btn"></i> Add Bookmark 
+                </button>
+                <% } %>
+              </form> 
+  <!-- don't worry it works perfectly fine(see in sublime text) -->
+            </div>
+
+          <% } else { %>
+
+            <div>
+              <!-- bookmark form -->
+              <form action="/posts/<%=post._id%>/bookmark/POST" method="POST" class="text-center py-1 toggle-options post-bookmark">
+                <!-- if currentUser exists then only further condition will be checked(so there is no chance of error"bookmarks not found") -->
+                <% if (currentUser && currentUser.bookmarks.some(function (bookmark) { 
+                  return bookmark.equals(post._id);
+                })) { %>
+                  <button class="uni-red navs-dropdown-item">
+                    <i class="fas fa-bookmark"></i> Remove Bookmark 
+                  </button>
+                <% } else { %> 
+                <button class="bookmark navs-dropdown-item">
+                  <i class="fas fa-bookmark"></i> Add Bookmark 
+                </button>
+                <% } %>
+              </form> 
+  <!-- don't worry it works perfectly fine(see in sublime text) -->
+            </div>
+
+          <% } %>
+
+          </div>
+        </div>
+        
+      <!-- </div> -->
+  <!-- Image part -->
+
+      <!-- text-part -->
+      <!-- removed the class "hide-org-post" -->
+      <div class="d-block">
+       <!-- div-content used in ajax -->
+       <div class="div-content">
+
+        <a href="/profile/<%=post.author._id%>" class="post-author-names pl-1">
+        <span class="badge pt-2 pb-0">
+          <img src="<%=post.author.profimage.secure_url%>" class="modal-image"/>
+        </span><span><%= post.author.username %></span>        
+        </a>
+        <% if(post.time){ %>
+        <p class="px-2 m-0 text-gray-200"><span class="small p-0 m-0"><%= moment(post.time).fromNow() %> at <%= moment(post.time).format('h:mm a') %></span></p>
+        <% } %>
+        <!-- <hr  style="border:0.5px solid rgb(124, 124, 124);" class="my-0 mx-2"> -->
+
+      <div class="post-text-div">
+      <div class="mb-1"></div>
+        <h5 class="text-white title py-0 px-1_5"><%=post.title%></h5>
+
+        <!-- READ MORE LESS FUNCTIONLITY(Remember in the post word "comment" is used for toggling) -->
+        <div class="bg-custom-black comment more mt-0 pt-0 mb-2">
+          <%=post.description%>
+        </div>
+      </div>
+
+
+        <!-- don't remove this for forms to work (lot of things to do)-->
+        <div class="toggle-edit-post-form d-none">
+          <div class="row d-block mx-1">
+            <div class="col-12">
+              <input class="input-form-control bg-custom-black px-1 forpost mb-1" placeholder="Post title...">
+              <textarea class="input-form-control bg-custom-black px-1 autoresizing" name="post[description]" placeholder="Start Typin..." value="Great" autofocus></textarea>
+            </div>
+            <div class=" bg-custom-black">
+              <button class="btn btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+              <button class="btn btn-cancelpost">Cancel</button>
+  <!--             <div class="parent-container">
+                <input type="file" id="file-upload" class="inputfile btn btn-file" name="image" data-multiple-caption="{count} files selected" multiple>
+                <label for="file-upload" class="btn custom-file-upload mt-2 pt-1 pb-0"><i class="far fa-lg fa-image"></i><span></span></label>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+                <div class="toggle-post-edit-form d-none">
+                  <div class="row d-block mx-1">
+  <!-- no worries where there is post there we can do all the things bcz of our routing -->
+                <% if(post.shpost  || post.shpost === null){ %>
+                  <form class="d-inline ed-po-form" action="/posts/<%= post._id %>/SHARED_POST" method="POST" enctype="application/x-www-form-urlencoded">
+                <% }else{ %>
+                  <form class="d-inline ed-po-form" action="/posts/<%= post._id %>/POST" method="POST" enctype="application/x-www-form-urlencoded">
+                <% } %>
+                    <div class="col-12">
+
+                      <input class="input-form-control-2 px-1 fordynpost-edit my-1 post-create-count" type="text" name="post[title]" placeholder="Edit Title  . . ." maxlength="50" autocomplete="off " value="<%=post.title%>">
+<!-- 
+                      <hr style="border:0.5px solid rgb(124, 124, 124);" class="my-0 mx-1"> -->
+
+                      <textarea class="input-form-control-2 px-1 mb-1 fordynpostbody-edit autoresizing post-create-count" name="post[description]" placeholder="Edit Description . . ." maxlength="270"><%=post.description%></textarea>
+
+                      <!-- <textarea class="input-form-control-2 bg-custom-black px-1 autoresizing forcomment-edit" name="pview[body]" placeholder="Edit Comment..."></textarea> -->
+                    </div>
+                    <div class=" bg-custom-black d-inline-block">
+                      <button class="btn d-inline btn-savepost-edit" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+                    </div>
+                  </form>
+                      <button class="btn d-inline btn-cancelpost-edit">Cancel</button>
+
+                  </div>
+                </div>
+
+
+
+
+<!-- IMAGES FOR THE ORIGINAL POST -->
+<div class="support-div-for-bind p-0 m-0">
+  <% if(post.images){ %><!-- checking if field exists-->
+   
+      <% if(post.images.length == 0){ %>
+
+      <% }else if(post.images.length == 1){ %>
+
+      <div class="post-images-grid">
+          <% post.images.forEach(function(image) { %>
+        <div class="post-image-wrapper d-inline p-0 m-0">
+
+          <div class="each-post-img-container single-post-image py-2 px-1">
+            <img class="cr-post-images p-0 pr-img1" src="<%= image.url %>">
+          </div>
+        </div>
+
+          <% }); %>
+      </div>
+
+<!--         <div class="image-row pl-1 pt-2 pb-1">
+          <% post.images.forEach(function(image) { %>
+            <div class="col-xs-12 float-left pr-2 pic-container">
+              
+              <img src="<%= image.url %>" class="img-thumbnail"/>
+
+            </div>
+          <% }); %>
+        </div> -->
+
+      <% }else{ %>
+
+<!--       <div class="my-1"></div>
+      <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2" > -->
+
+        <% if(post.images.length === 2 || post.images.length === 4){ %>
+          <div class="post-images-grid pl-1 py-2">
+              <% post.images.forEach(function(image) { %>
+                <div class="post-image-wrapper d-inline p-0 m-0">
+                  <div class="each-post-img-container double-post-image d-inline">
+                    <img class="cr-post-double-images" src="<%= image.url %>">
+                  </div>
+                </div>
+              <% }); %>
+              <div class="centered text-center">
+                <p class="m-0">Tap to zoom</p>
+              </div>
+          </div> 
+        <% }else if(post.images.length === 3){ %>
+
+          <div class="post-images-grid pl-1 py-2">
+            <% var triCounter = 0 %>
+              <% post.images.forEach(function(image) { %>
+
+                <% triCounter++ %>
+                <% if(triCounter !== 3){ %>
+                  <div class="post-image-wrapper d-inline p-0 m-0">
+
+                    <div class="each-post-img-container triple-post-image d-inline">
+                      <img class="cr-post-triple-2-images p-0 pr-img1" src="<%= image.url %>">
+                    </div>
+                  </div>
+                <% }else{ %>
+                  <div class="post-image-wrapper d-inline p-0 m-0">
+
+                    <div class="each-post-img-container triple-post-image triple-last-img">
+                      <img class="cr-post-images p-0 pr-1" src="<%= image.url %>">
+                      <!-- to counter effect the pl-1 of post-images-grid pr-1 is used -->
+                    </div>
+                  </div>
+                <% } %>
+
+
+              <% }); %>
+              <div class="centered text-center">
+                <p class="m-0">Tap to zoom</p>
+              </div>
+          </div> 
+        <% } %>
+
+
+        <!-- For Showing Seperate images -->
+
+      <div class="post-images-grid sep-images d-none">
+          <% post.images.forEach(function(image) { %>
+        <div class="post-image-wrapper d-inline p-0 m-0">
+
+          <div class="each-post-img-container sep-post-images py-1 px-1">
+            <img class="cr-post-images p-0 pr-img1" src="<%= image.url %>">
+          </div>
+        </div>
+          <% }); %>
+            <div class=" mx-auto text-white">
+                <button class="options_minimize__link"><i class="fas fa-compress"></i> Minimize </button>
+                <!-- <p>What a beautiful sunrise</p> -->
+            </div>
+      </div>
+
+      <% } %>
+
+  <% } %><!-- image field check end-->
+</div>
+<!-- IMAGES FOR ORIGINAL POST END -->
+
+</div><!-- div-content END -->
+
+
+<!-- don't add  [ || post.shpost === null ] here in post.shpost -->
+  <% if(post.shpost){ %>
+  <!-- ---------------- SHARED POST START -------------- -->
+  <div class="my-1"></div>
+  <!-- <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2"> -->
+
+
+
+    <div class="card-body mt-1 mb-0 pb-1 pt-1 pl-0 shared-card pr-1">
+
+      <div class="per-card-1">
+
+        <div class="parent-container-sh">
+
+
+<!-- THE OPTION MENU -->
+
+        <div class="btn-group float-right shared-post-option-menu">
+          
+            <button type="button" class="option-button-2 btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-md fa-ellipsis-h"></i>
+            </button>
+          
+
+          <div class="dropdown-menu dropdown-menu-right">
+
+            <div>
+              
+                <!-- The SHARED POST IS NOTHING BUT THE NORMAL "POST" -->
+                <a href="/posts/<%=post.shpost._id%>/POST" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-expand"></i> Show Full Opinion
+                </a>
+              
+            </div>
+
+            <div>
+              
+              <% if(currentUser && currentUser._id.equals(post.shpost.author._id)){ %>
+                <!-- The SHARED POST IS NOTHING BUT THE NORMAL "POST" -->
+                <a href="#share" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-share-alt"></i> Share this post
+                </a>
+              <% }else{ %>
+                <a href="/posts/<%=post.shpost._id%>/share/POST" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-share-alt"></i> Share this post
+                </a>
+              <% } %>
+              
+            </div>
+
+          </div>
+        </div>
+
+<!-- OPTION MENU END -->
+
+
+      <div class="d-block">
+        <a href="/profile/<%=post.shpost.author._id%>" class="post-author-names pl-1">
+          <span class="badge">
+            <img src="<%=post.shpost.author.profimage.secure_url%>" class="modal-image"/>
+          </span><%= post.shpost.author.username %>
+        </a>
+        <% if(post.shpost.time){ %>
+        <p class="px-2 m-0 text-gray-200"><span class="small p-0 m-0"><%= moment(post.shpost.time).fromNow() %> at <%= moment(post.shpost.time).format('h:mm a') %></span></p>
+        <% } %>
+
+      <div class="mb-1"></div>
+        <h5 class="text-white title px-1_5"><%=post.shpost.title%></h5>
+
+        <!-- READ MORE LESS FUNCTIONLITY(Remember in the post word "comment" is used for toggling) -->
+        <div class="pr-1">
+          <div class="shared-card-color comment more mt-0 pt-0 mb-2">
+            <%=post.shpost.description%>
+          </div>
+        </div>
+      </div>
+     
+      <% if(post.shpost.images.length == 0){ %>
+
+      <% }else if(post.shpost.images.length == 1){ %>
+
+      <div class="post-images-grid sh-grid-border">
+          <% post.shpost.images.forEach(function(image) { %>
+            <div class="post-image-wrapper d-inline p-0 m-0">
+
+              <div class="each-post-img-container single-post-sh-image py-2 px-1">
+                <img class="cr-post-images p-0 h-200" src="<%= image.url %>">
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+      <% }else{ %>
+
+        <% if(post.shpost.images.length === 2 || post.shpost.images.length === 4){ %>
+          <div class="post-images-grid sh-grid-border pl-1 py-2">
+              <% post.shpost.images.forEach(function(image) { %>
+                <div class="post-image-wrapper d-inline p-0 m-0">
+                  <div class="each-post-img-container double-post-image d-inline">
+                    <img class="cr-post-double-images h-200" src="<%= image.url %>">
+                  </div>
+                </div>
+              <% }); %>
+              <div class="centered text-center">
+                <p class="m-0">Tap to zoom</p>
+              </div>
+          </div> 
+        <% }else if(post.shpost.images.length === 3){ %>
+
+          <div class="post-images-grid sh-grid-border pl-1 py-2">
+            <% var triCounter = 0 %>
+              <% post.shpost.images.forEach(function(image) { %>
+
+                <% triCounter++ %>
+                <% if(triCounter !== 3){ %>
+                  <div class="post-image-wrapper d-inline p-0 m-0">
+
+                    <div class="each-post-img-container triple-post-sh-image d-inline">
+                      <img class="cr-post-triple-2-images p-0 pr-img1" src="<%= image.url %>">
+                    </div>
+                  </div>
+                <% }else{ %>
+                  <div class="post-image-wrapper d-inline p-0 m-0">
+
+                    <div class="each-post-img-container triple-post-sh-image triple-last-sh-img">
+                      <img class="cr-post-images p-0 pr-1 h-200" src="<%= image.url %>">
+                      <!-- to counter effect the pl-1 of post-images-grid pr-1 is used -->
+                    </div>
+                  </div>
+                <% } %>
+
+
+              <% }); %>
+              <div class="centered text-center">
+                <p class="m-0">Tap to zoom</p>
+              </div>
+          </div> 
+        <% } %>
+
+
+        <!-- For Showing Seperate images -->
+
+      <div class="post-images-grid sh-grid-border sep-images sh-sep-images d-none">
+          <% post.shpost.images.forEach(function(image) { %>
+        <div class="post-image-wrapper d-inline p-0 m-0">
+
+          <div class="each-post-img-container sep-post-images py-1 px-1">
+            <img class="cr-post-images p-0 h-200-auto" src="<%= image.url %>">
+          </div>
+        </div>
+          <% }); %>
+            <div class=" mx-auto text-white">
+                <button type="button" class="options_minimize__link"><i class="fas fa-compress"></i> Minimize </button>
+                <!-- <p>What a beautiful sunrise</p> -->
+            </div>
+      </div>
+
+      <% } %>
+
+
+  <!--   <a href="#" class="btn btn-sm" id="support-btn"></a>
+    <a href="#" class="btn btn-sm float-right " id="share-btn" data-toggle="tooltip" data-placement="top" title="Share on your page"></a> -->
+<!--     <div class="row mx-2">
+
+      <div class="col-xs-6 pt-2 sh-like-no">
+        <a href="/posts/<%=post.shpost._id%>/likes/POST" class="ml-2">
+        <span class="likes-val"></span>
+        <%= `${post.shpost.likes.length} Like${post.shpost.likes.length === 1 ? '' : 's'}` %>
+        </a>    
+        </div>
+      <div class="col-xs-6 pt-2 text-right sh-comm-no">
+        <a href="/posts/<%=post.shpost._id%>/POST">
+        <span class="likes-val"></span>
+        <%= `${post.shpost.pviews.length} Comment${post.shpost.pviews.length === 1 ? '' : 's'}` %>
+        </a>        
+      </div>
+
+    </div> -->
+
+
+
+    
+      </div> <!--div class="parent-container"-->
+
+
+    </div>
+
+    </div><!-- div-card (end) of shared card-->
+
+      <div class="mx-3 m-0 bg-custom-shared-black-iden py-2">
+      <% if(post.shpost){ %>
+        <div class="px-auto text-center">
+          <span class="sh-p-name"><a href="/profile/<%=post.author._id%>"><%=post.author.username%></a></span> shared <span class="own-p-name"><a href="/profile/<%=post.shpost.author._id%>"><%=post.shpost.author.username%>'s</a></span> post
+        </div>
+      <%  } %>
+      </div>
+
+  <% }else if(post.shpost === null){ %>
+  <!-- NULL MEANS "NOTHING" OR "NO OBJECT" -->
+  <!--  ONLY NULL IS THE ONLY WAY -->
+  <!-- REMEMBER IT IS AUTOMATICALLY SET TO NULL WHEN A PARTICULAR SHARED POST IS DELETED -->
+
+    <div class="my-1"></div>
+    <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2">
+
+  <div class="bg-custom-more-black d-block mx-2 py-3 share-error">
+    <span class="share-error-image ml-2"><img style="height:60px; width:60px" src="/images/error.svg"></span>
+    <span class="share-error-text">Oops! </span>
+    <div class="share-error-text text-center mt-2">
+      Shared Post was deleted by the user
+    </div>
+  </div>
+    
+  <% }%>
+  <!-- ---------------- SHARED POST END -------------- -->
+
+        
+
+
+
+
+    <!-- USE Directly this works perfectly with any image size -->
+
+    <div class="my-1"></div>
+    <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2">
+
+    <div class="my-2"></div>
+    <div class="row mx-2">
+      <div class="col-xs-6 m-0">
+        <a href="#support"><button class="options_support__link float-left m-0" data-toggle="tooltip" data-placement="top" title="Support <%=currentUser.username%>">Support <i class="fas fa-plus"></i></button></a>
+      </div>
+      <% if(currentUser._id.equals(post.author._id)){ %>
+      <div class="col-xs-6 m-0">
+        <a href="#share"><button class="options_share__link float-right m-0" data-toggle="tooltip" data-placement="top" title="Share on your page">Share <i class="fas fa-share"></i></button></a>
+      </div>
+      <% }else{ %>
+      <div class="col-xs-6 m-0">
+        <% if(post.shpost || post.shpost === null){ %>
+          <a href="/posts/<%=post._id%>/share/SHARED_POST"><button class="options_share__link float-right m-0" data-toggle="tooltip" data-placement="top" title="Share on your page">Share <i class="fas fa-share"></i></button></a>
+        <% } else { %>
+          <a href="/posts/<%=post._id%>/share/POST"><button class="options_share__link float-right m-0" data-toggle="tooltip" data-placement="top" title="Share on your page">Share <i class="fas fa-share"></i></button></a>
+        <% } %>
+      </div>
+      <% } %>
+
+    </div>
+  <!--   <a href="#" class="btn btn-sm" id="support-btn"></a>
+    <a href="#" class="btn btn-sm float-right " id="share-btn" data-toggle="tooltip" data-placement="top" title="Share on your page"></a> -->
+<div class="sub-parent">
+    <div class="row mx-2">
+
+      <div class="col-xs-6 pt-2 like-no">
+        <% if(post.shpost || post.shpost === null){ %>
+        <a href="/posts/<%=post._id%>/likes/SHARED_POST">
+        <span class="likes-val"></span>
+        <%= ` ${post.likes.length} Like${post.likes.length === 1 ? '' : 's'}` %>
+        </a>
+        <% } else { %>
+        <a href="/posts/<%=post._id%>/likes/POST">
+        <span class="likes-val"></span>
+        <%= `${post.likes.length} Like${post.likes.length === 1 ? '' : 's'}` %>
+        </a>
+        <% } %>        
+      </div>
+      <div class="col-xs-6 pt-2 text-right comm-no">
+        <% if(post.shpost || post.shpost === null){ %>
+        <a href="/posts/<%=post._id%>/SHARED_POST">
+        <span class="likes-val"></span>
+        <%= ` ${post.pviews.length} Comment${post.pviews.length === 1 ? '' : 's'}` %>
+        </a>
+        <% } else { %>
+        <a href="/posts/<%=post._id%>/POST">
+        <span class="likes-val"></span>
+        <%= `${post.pviews.length} Comment${post.pviews.length === 1 ? '' : 's'}` %>
+        </a>
+        <% } %>   
+      </div>
+    </div>
+    <div class="my-1"></div>
+    <!-- <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2"> -->
+
+                <!-- Authentic options format -->
+                <div class="row mx-1 my-1">
+    
+                  <div class="col-xs-6 col-lg-6">
+                    <% if(post.shpost || post.shpost === null){ %>
+                    <form action="/posts/<%=post._id%>/like/SHARED_POST" method="POST" class="like-form text-center">
+                    <% } else { %>
+                    <form action="/posts/<%=post._id%>/like/POST" method="POST" class="like-form text-center">
+                    <% } %>
+
+                    <% if (currentUser && post.likes.some(function (like) { 
+                        return like.equals(currentUser._id);
+                    })) { %>
+                      <button class="liked-btn post-item-box btn-block py-1 def-liked">
+                        <div style="font-weight: 600;">
+                          <i class="fas fa-thumbs-up"></i> Liked
+                        </div>
+                      </button>
+                    <% } else { %> 
+                      <button class="post-item-box btn-block py-1 not-liked">
+                        <i class="fas fa-thumbs-up"></i> Like
+                      </button>
+                    <% } %>
+                  
+                    </form> <!-- don't worry it works perfectly fine(see in sublime text) -->
+                  </div>
+                
+                  <div class="col-xs-6 col-lg-6">
+                    <button  class="post-item-box btn-block comment-input-toggle py-1">
+                      <!-- #comment is nothing but used to stop from going to the top of page -->
+                      <a href="#comment" class="post-navs"><i class="far fa-comment-alt"></i> Comment</a> <!-- Comments are pviews-->
+                    </button>
+                  </div>
+                    
+                
+                </div>
+
+                <div class="toggle-comment-post-form d-none">
+                  <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2">
+                  <div class="row d-block mx-1">
+  <!-- no worries where there is post there we can do all the things bcz of our routing -->
+                <% if(post.shpost || post.shpost === null){ %>
+                  <form class="d-inline po-co-form" action="/posts/<%=post.id%>/pviews/SHARED_POST" method="POST" enctype="application/x-www-form-urlencoded">
+                <% }else{ %>
+                  <form class="d-inline po-co-form" action="/posts/<%=post.id%>/pviews/POST" method="POST" enctype="application/x-www-form-urlencoded">
+                <% } %>
+                    <div class="col-12">
+                      <input class="input-form-control bg-custom-black px-1 forcomment mb-1" placeholder="Write comment..." name="pview[body]" autofocus>
+                    </div>
+                    <div class=" bg-custom-black d-inline-block">
+                      <button class="btn d-inline btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+
+                      <div class="comment-pic-container">
+                        <!-- image in comments -->
+                      </div>
+                    </div>
+                  </form>
+                      <button class="btn d-inline btn-cancelcomment">Cancel</button>
+
+                  </div>
+                </div>
+</div><!--parent for selection(sub-parent)-->
+
+    <div class="my-1"></div>
+    <!-- <hr style="border:0.5px solid rgb(124, 124, 124);" class="mx-2"> -->
+
+<ul class="comments-list p-0 m-0">
+  <!-- Showing upto 3 latest comments-->
+      <%  post.pviews.slice(0,3).forEach(function(pview){ %>
+<li class="full-single-comm">
+        <% if(currentUser && currentUser._id.equals(pview.author._id)){ %>
+  <div class="dropdown show">
+    <div class="btn-group float-right">
+            <button type="button" class="option-button btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(20, 20, 20, .7);">
+              <i class="fas fa-md fa-ellipsis-h"></i>
+            </button>
+      <div class="dropdown-menu dropdown-menu-right mr-1 text-right" aria-labelledby="option-button" style="background:0px;border:0px;">
+        <div class="com-optn-box d-inline pt-0 mt-0">
+          
+          <% if(post.shpost || post.shpost === null){ %>            
+            <form class="del-po-co-form d-inline" action="/posts/<%=post._id%>/pviews/<%=pview._id%>/SHARED_POST" method="POST" class="text-center d-inline" style="cursor:pointer;">
+              <button class="btn-sm btn-com-optn" name="confirm_delete" type="submit">
+
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+
+          <% }else{ %>
+            <form class="del-po-co-form d-inline" action="/posts/<%=post._id%>/pviews/<%=pview._id%>/POST" method="POST" class="text-center d-inline" style="cursor:pointer;">
+              <button class="btn-sm btn-com-optn" name="confirm_delete" type="submit">
+
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          <% } %>
+
+          <button class="btn-sm btn-com-optn com-inp-tog">
+            <i class="fas fa-pen"></i>
+          </button>
+        </div>
+    </div>
+    </div>
+  </div> <!-- btn group end -->
+
+        <% } %><!--only for the author of comment-->
+
+        <div class="comment-display">
+          <a href="/profile/<%=pview.author._id%>" class="post-author-names ">
+          <span class="badge">
+          <img src="<%=pview.author.profimage.secure_url%>" class="modal-image-2">
+          </span><%= pview.author.username %></a>
+
+        <% if(currentUser && currentUser._id.equals(pview.author._id)){%>
+          <div class="comment-div pl-1">
+
+            <p><%=pview.body%></p>
+            <!-- btndropdown -->
+          </div>
+        <% }else{ %><!--only for the author of comment-->
+          <div class="pl-1">
+
+            <p><%=pview.body%></p>
+            <!-- btndropdown -->
+          </div>
+        <% } %><!--not for the author of comment-->
+        </div>
+
+        <% if(currentUser && currentUser._id.equals(pview.author._id)){%>
+        <!-- toggle-comment-edit-form -->
+        <!-- no need of type bcz updating in the pview model -->
+                <div class="toggle-comment-edit-form d-none">
+                  <div class="row d-block mx-1">
+  <!-- no worries where there is post there we can do all the things bcz of our routing -->
+                  <form class="d-inline ed-po-co-form" action="/posts/<%=post.id%>/pviews/<%=pview._id%>" method="POST" enctype="application/x-www-form-urlencoded">
+                    <div class="col-12">
+                      <textarea class="input-form-control-2 bg-custom-black px-1 autoresizing forcomment-edit" name="pview[body]" placeholder="Edit Comment..."><%=pview.body%></textarea>
+                    </div>
+                    <div class=" bg-custom-black d-inline-block">
+                      <button class="btn d-inline btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+
+                      <div class="comment-pic-container">
+                        <!-- image in comments -->
+                      </div>
+                    </div>
+                  </form>
+                      <button class="btn d-inline btn-cancelcomment-edit">Cancel</button>
+
+                  </div>
+                </div>
+        <% } %><!--only for the author of comment-->
+            </li>
+
+       <% }); %> <!--pview loop end-->
+</ul><!-- comments-list end-->
+
+
+
+        <% if(post.pviews.length > 3){ %> 
+          <% if(post.shpost || post.shpost === null){ %> 
+            <a href="/posts/<%=post._id%>/SHARED_POST" class="float-right p-0 m-0">Show all comments</a>
+            <br>
+          <% }else{ %>
+            <a href="/posts/<%=post._id%>/POST" class="float-right p-0 m-0">Show all comments</a>
+            <br>
+          <% } %>
+        <% } %>
+        <div class="my-3"></div>
+
+    
+      </div> <!--div class="parent-container"-->
+
+
+    </div>
+
+   </div>
+  </div>
+  <% }); %>
+
+</div><!-- end of topic div -->
+
+<% } else { %>
+    
+    <% if(currentUser && currentUser._id.equals(user._id)) {%>
+      <div class="card-body">
+          <i class="fas fa-inbox"></i> Opinions
+          <h5>Oops no opinions !</h5>
+          <!-- href="/trending" -->
+          <a href="/posts/new"><button class="options__link">Add Opinions <i class="fas fa-lg fa-paper-plane"></i></button></a>
+      </div>
+    <% } else { %>
+      <div class="card-body">
+          <i class="fas fa-inbox"></i> Opinions
+          <h5>Oops no opinions !</h5>
+          <!-- href="/trending" -->
+          <a href="/posts"><button class="options__link">Explore <i class="fas fa-lg fa-rocket"></i> </button></a>
+      </div>
+    <% } %>
+
+<% } %>

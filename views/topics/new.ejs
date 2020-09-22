@@ -1,0 +1,259 @@
+  <% layout('layouts/create-topic-layout') -%>
+
+<div class="card" style="margin-top:0rem;">	
+
+	<div class="card-body topic-create-page py-1 px-2 mx-0" style="border-radius:0.5rem;">
+
+	    <div class="parent-container ">
+			<!-- Topic  -->
+<form id="create-topic" action="/topics" method="POST" enctype="multipart/form-data">
+
+<div class="row">
+	<div class="col-md-6">
+
+		<div class="create-topic px-2">
+			<div class="create-topic-container mx-sm-5 mt-4 text-left text-md-center">
+
+				<h2 class="text-custom-blue">Enter the title of your exciting topic</h2>
+
+				<h6 class="text-white-600">Make sure your title is short and catchy</h6>
+
+			    <div class="topic-content mx-md-auto">
+			      <input class="create-topic-inputs create_topic_name" type="text" placeholder="Topic Title" name="topic[title]" maxlength="35" required>
+			      <span class="topic-create-border"></span>
+			    </div>
+
+				<div class="the_count_topic_characters text-custom-blue">
+					<span class="current_topic_characters">0</span>
+					<span class="maximum_topic_characters"> / 35</span>
+				</div>
+
+		    </div>
+
+		    <div class="create-topic-container mx-sm-5 mt-5 text-left text-md-center">
+
+				<h2 class="text-custom-blue">Enter the tagline/description of your topic</h2>
+
+				<h6 class="text-white-600">Enter descriptive and catchy tagline</h6>
+
+			    <div class="topic-content mx-md-auto">
+			      <input class="create-topic-inputs create_topic_name2" type="text" placeholder="Topic Tagline" name="topic[tagline]" maxlength="55" required>
+			      <span class="topic-create-border"></span>
+			    </div>
+
+				<div class="the_count_topic_characters text-custom-blue">
+					<span class="current_topic_characters">0</span>
+					<span class="maximum_topic_characters"> / 55</span>
+				</div>
+
+		    </div>
+
+		<div class="create-topic-container mx-sm-5 mt-5 text-left text-md-center">
+
+			<h2 class="text-custom-blue">Select Category of your topic</h2>
+
+			<div class="container-fluid pl-md-4 pl-lg-5">
+			    <div class="topic-content">
+	
+			    	<div class="row">
+
+
+					   <select type="text" name="topic[hub]" id="hub" class="form-control input-lg" required>
+					   	
+						    <option selected value="">Select Category</option>
+							<option value="hangout hub">Hangout Hub</option>
+							<option value="comedy hub">Comedy Hub</option>
+							<option value="movie hub">Movie Hub</option>
+							<option value="adventure hub">Adventure Hub</option>
+							<option value="news hub">News Hub</option>
+							<option value="entertainment hub">Entertainment Hub</option>
+
+					   </select>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="create-topic-container mx-sm-5 mt-5 text-left text-md-center">
+
+			<h2 class="text-custom-blue">Select tags for your topic</h2>
+			<h6 class="text-white-600 px-1">Keep tags short and catchy</h6>
+			<h6 class="text-white-600 px-1">Tags give a gist of your topic and make it easy to reach</h6>
+			<div class="container-fluid pl-md-4 pl-lg-5">
+
+			    <div class="topic-content">
+
+					<div class="row">
+					<div class="col-12">
+
+					   <input type="text" name="tags" id="tags" class="form-control input-lg" required>
+
+					   <div class="mt-2 display-tags-block form-control bg-custom-black" class="d-block">
+						   	<!-- <div class="my-1 px-1 display-tag-name py-0">
+							   		<span class="px-2 py-0"> Adventure</span>
+						   	</div> -->
+					   </div>
+
+					</div>
+					</div>
+
+			    </div>
+			</div>
+			<h6 class="text-white-600 px-1">Enter multiple tags seperated with commas</h6>
+			<!-- <h6 class="text-white-600 px-1">Feel free to add your own custom tags later</h6> -->
+		</div>
+
+
+		</div><!-- create-topic End -->
+        <hr  style="border:1px solid #ffffff;" class="my-0 mx-2 d-md-none">
+
+
+	</div><!-- col-6 -->
+
+
+
+
+	<div class="col-md-6 px-2 b-l-white">
+		<div class="create-topic px-2">
+			<div class="create-topic-container mx-sm-5 mx-lg-6 mt-4 text-left text-md-center">
+
+			<h3 class="text-custom-blue"> Live preview </h3>
+			<div class="preview-topic-logo px-1 py-1 px-sm-2 py-sm-2 px-md-4 py-md-2">
+					
+				<div class="left-turn-sect-1">
+
+	      			<div class="d-flex align-items-end">
+
+		            <img class="topic-back-image" id="pr-cover-img" src="/images/cover1.jpg"  style="border-radius:0.5rem;">
+
+		            <!-- while changing here also change in JAVASCRIPT FILE THE URL -->
+		            <img class="topic-pic" id="pr-topic-img" src="/images/pract_logo2.png" alt="Topic Image">
+
+		            </div>
+
+			        <div class="px-3 pb-1 pb-md-1 topic-specs text-left" style="color:#000000;font-size:30px;line-height:10px;">
+			            
+			        	<span class="text-danger">. . . . . . . . . . . . . . .</span>
+			        	<br>
+			        	<span class="text-primary">. . . . . . . . . . . . . . .</span>   
+			        	<br>
+			        	<span class="text-danger">. . . . . . . . . . . . . . .</span>
+
+		        	</div><!-- topic-specs end -->
+	            		        
+	        	</div><!-- turning section one end-->
+
+			</div>
+
+			</div>
+		</div>
+
+		<div class="container-fluid create-topic-container mx-sm-1 mt-1 text-left text-md-center">
+
+
+			<div class="file-upload bg-custom-black">
+  				<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Topic Logo</button>
+
+				  	<div class="image-upload-wrap">
+				    	<input class="file-upload-input d-none" name="topicImage" type='file' onchange="readURL(this);loadBackImg(event)" multiple accept="image/*"/>
+				    	<div class="drag-text">
+				      		<h4>Select the image to be added</h4>
+				      		<small>Upload Square Image for perfect fit</small>
+				    	</div>
+				  	</div>
+				  	<div class="file-upload-content">
+				    	<img class="file-upload-image" src="#" alt="your image" />
+				    	<div class="image-title-wrap">
+				      		<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+				    	</div>
+				  	</div>
+			</div>
+
+			<!-- <input type="file" accept="image/*" onchange="loadBackImg(event)" class=""> -->
+
+		</div>
+
+		<div class="container-fluid mt-1 text-center">
+				<h2 class="text-custom-blue">Select Cover Image</h2>
+
+
+			<section class="radio-skins">
+			<div class="row">
+			
+			<br>
+				<div class="col-12 col-sm-6 col-lg-3 px-1 mb-1">
+				  <input type="radio" id="control_01" value="1" name="topic[coverImage]" checked>
+				  <label class="skin-1 label-skin pb-5 mb-lg-1 cover-image" for="control_01">
+				    <h6 class="skin-name">Coal Black</h6>
+				  </label>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_02" value="2" name="topic[coverImage]">
+				  <label class="skin-2 label-skin pb-5 mb-lg-1 cover-image" for="control_02">
+				    <h6 class="skin-name-2">Ivory Light</h6>
+				  </label>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_03" value="3" name="topic[coverImage]">
+				  <label class="skin-3 label-skin pb-5 mb-lg-1 cover-image" for="control_03">
+				    <h6 class="skin-name-3">Ocean Scramble</h6>
+				  </label>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_04" value="4" name="topic[coverImage]">
+				  <label class="skin-4 label-skin pb-5 mb-lg-1 cover-image" for="control_04">
+				    <h6 class="skin-name-4">City Dark</h6>
+				  </label>
+				</div> 
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_05" value="5" name="topic[coverImage]">
+				  <label class="skin-5 label-skin pb-5 mb-lg-1 cover-image" for="control_05">
+				    <h6 class="skin-name-5">City Light</h6>
+				  </label>
+				</div> 
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_06" value="6" name="topic[coverImage]">
+				  <label class="skin-6 label-skin pb-5 mb-lg-1 cover-image" for="control_06">
+				    <h6 class="skin-name-6">Space Wanderer</h6>
+				  </label>
+				</div> 
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_07" value="7" name="topic[coverImage]">
+				  <label class="skin-7 label-skin pb-5 mb-lg-1 cover-image" for="control_07">
+				    <h6 class="skin-name-7">Modern</h6>
+				  </label>
+				</div> 
+				<div class="col-12 col-sm-6 col-lg-3 px-1">
+				  <input type="radio" id="control_08" value="8" name="topic[coverImage]">
+				  <label class="skin-8 label-skin pb-5 mb-lg-1 cover-image" for="control_08">
+				    <h6 class="skin-name-8">Space Blue</h6>
+				  </label>
+				</div>    
+			</div>
+			</section>
+
+		</div>
+
+	</div>
+
+
+	<br>
+
+	<div class="d-block my-3 mx-auto">
+		<button type="submit" class="btn btn-custom-blue">Create Topic</button>
+	</div>
+</div>
+
+
+
+
+</form>
+
+		</div>
+
+	</div>
+
+</div>

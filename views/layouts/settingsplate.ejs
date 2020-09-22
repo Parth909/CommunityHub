@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Custom fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"  rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+
+  
+  <!-- Custom styles for this template-->
+  <link href="/stylesheets/great-friend.css" rel="stylesheet">
+  <link href="/stylesheets/additionalfunc.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style_2.css">
+  <link rel="stylesheet" href="/stylesheets/settings.css">  
+  </head>
+  <body id="page-top">
+    
+  	<% include ../partials/navbar %>
+  	<% include ../partials/flash-messages %>
+    <div class="container">
+    <%- body -%>
+    </div>
+    <% include ../partials/footer %>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <!-- <script src="/javascripts/great-friend.js"></script> -->
+    <script src="/javascripts/functionalities.js"></script>
+
+
+    <script type="text/JavaScript">
+      // Settings Menu Functionality
+$(function(){
+
+  $('#slide-submenu').on('click',function() {             
+        $(this).closest('.list-group').fadeOut('fast',function(){
+          $('.mini-submenu').fadeIn();  
+        });
+        
+      });
+
+  $('.mini-submenu').on('click',function(){   
+        $(this).next('.list-group').toggle('fast');
+        $('.mini-submenu').hide();
+  });
+
+  $('a.a-set-inner').on('click', function(){
+        $(this).closest('.list-group').fadeOut('slide',function(){
+          $('.mini-submenu').fadeIn();  
+        });
+  });
+});
+
+$(".list-group").on("click", ".a-set", function(e){
+    $(".a-set").each(function(){
+      if($(this).hasClass('active'))
+      $(this).removeClass('active');
+    });
+
+    $(this).addClass('active');
+});
+
+$(".list-group").on("click", ".a-set-inner", function(e){
+
+  var parent = $(this).closest('.list-group-item');
+  var aSet = parent.find('.set-main');
+
+    $(".a-set-inner").each(function(){
+      if($(this).hasClass('active'))
+      $(this).removeClass('active');
+    });
+
+    $(this).addClass('active');
+    aSet.addClass('active');
+
+
+});
+    </script>
+
+  </body>
+</html>

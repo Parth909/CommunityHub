@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Custom fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"  rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  
+  <!-- Custom styles for this template-->
+
+    <link href="/stylesheets/great-friend.css" rel="stylesheet">
+    <link href="/stylesheets/additionalfunc.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style_2.css">
+    <link rel="stylesheet" href="/stylesheets/tostyle.css">
+  </head>
+  <body id="page-top">
+
+
+  	<% include ../partials/navbar %>
+  	<% include ../partials/flash-messages %>
+    
+    <!-- ///////////////////// -->
+    <!-- Profile Plate Start -->
+
+    <div class="row mx-small mx-md-2">
+        <div class="col-sm-12 col-md-6 col-lg-4 pr-md-1 b-r-2">
+            
+            <% include ../partials/profile/leftSectProfMenu %>
+
+        </div>
+
+        <div class="col-sm-10 col-md-6 col-lg-4 pr-md-1 mx-sm-auto b-r-2">
+        
+        <div class="card shadow-lg mb-4 b-r-2" style="border:none;background-color: rgb(25, 25, 25);">
+
+            <div class="d-flex align-items-end">
+
+            <!-- <img class="background-image" src="/images/Saitama+Cover.jpg"> -->
+
+<!-- 3:1 ASPECT RATIO -->
+            <div class="cover-image-wrapper">
+                <img class="profile-background-image" src="/images/background.jpeg">
+            </div>
+
+            <img class="usr-pic" src="<%=user.profimage.secure_url%>" alt="Avatar">
+            </div>
+
+            <div class="px-3 user-specs text-white pt-2" style="color:#000000">
+            <div class="mt-1">
+                            
+                <span class="font-weight-bold mb-2 text-white" id="user-name"> <%= user.username%> </span>
+                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+                <span>
+                    <div id="edit-profile">
+                        <a href="/profile/<%= currentUser._id %>/edituser" title="Edit username or password">
+                            <button type="button" class="btn btn-sm b-r-1 btn-edit-user dec-none">
+                                <i class="fas fa-user-edit"></i>
+                            </button> 
+                        </a>
+                    </div>
+                </span>
+                <% } %>
+                <br>
+                <!-- <span id="user-status"> Innovator and Creator at Unifiq</span> -->
+                <span id="user-status text-white">Passionate FootBaller, Artist, Song Writer, Gamer, Musician and a Film Director.</span>
+
+            </div>
+            
+            <div class="row justify-content-start mt-1 px-2" id="user-specs-text">
+
+                <div class="w-100 pb-2 pl-1">
+                    <p class="p-0 m-0">Badges</p>                    
+                </div>
+
+                <div class="d-inline-block mx-1" title="New to Unifiq">
+                    <img src="/images/new.svg" class="user-badges">
+                </div>
+
+                <div class="d-inline-block mx-1" title="Bookmark-savy">
+                    <img src="/images/bookmark-savy.svg" class="user-badges">
+                </div>
+
+
+                <div class="d-inline-block mx-1" title="Two factor authentication">
+                    <img src="/images/shield.svg" class="user-badges">
+                </div>
+
+                <div class="d-inline-block mx-1" title="Solid Contributor">
+                    <img src="/images/solid-contributor.svg" class="user-badges">
+                </div>
+
+                <div class="d-inline-block mx-1" title="Star Contributor">
+                    <img src="/images/star-contributor.svg" class="user-badges">
+                </div>  
+
+                <div class="d-inline-block mx-1" title="Poll Creator">
+                    <img src="/images/poll-creator.svg" class="user-badges">
+                </div> 
+
+
+                <div class="d-inline-block mx-1" title="Network Builder">
+                    <img src="/images/network-builder.svg" class="user-badges">
+                </div> 
+
+                <div class="d-inline-block mx-1" title="Posts Sharer">
+                    <img src="/images/sharer.svg" class="user-badges">
+                </div> 
+
+
+                <div class="d-inline-block mx-1" title="Savy Video Watcher">
+                    <img src="/images/video-watcher.svg" class="user-badges">
+                </div> 
+
+                <div class="d-inline-block mx-1" title="Team Player">
+                    <img src="/images/team.svg" class="user-badges">
+                </div>
+
+                <div class="d-inline-block mx-1" title="Unifiq Explorer">
+                    <img src="/images/Unifiq-explorer.svg" class="user-badges">
+                </div>  
+
+                <div class="d-inline-block mx-1" title="Unifiq Idea Contributor">
+                    <p class="d-none">For those who contribute to unifiq on consistent basis</p>
+                    <img src="/images/unifiq-ideas-contr.svg" class="user-badges">
+                </div>  
+
+                <div class="d-inline-block mx-1" title="Global Contributor">
+                    <p class="d-none">Reached till specific no of people in the world</p>
+                    <img src="/images/globe.svg" class="user-badges">
+                </div>  
+
+                <div class="d-inline-block mx-1" title="Tags Suggestor">
+                    <p class="d-none">when user suggests channels different tags</p>
+                    <img src="/images/tag-suggestor.svg" class="user-badges">
+                </div>  
+
+                <div class="d-inline-block mx-1" title="Channel Discoverer">
+                    <p class="d-none">When user discovers different low followers channels and brings them up in return we spike and promote the users content who help others bring their channel up(This falls under special category)</p>
+                    <img src="/images/discoverer.svg" class="user-badges">
+                </div>
+
+                <div class="d-inline-block mx-1" title="Content Creator">
+                    <p class="d-none">Need to verify the creator(Comes under check and verify category)</p>
+                    <img src="/images/content-creator.svg" class="user-badges">
+                </div>  
+
+                <div class="d-inline-block mx-1" title="Multiple quality channels owner">
+                    <p class="d-none">when user suggests channels different tags</p>
+                    <img src="/images/multi-quality-channels.svg" class="user-badges">
+                </div> 
+
+                <div class="d-inline-block mx-1" title="Channel Partner">
+                    <p class="d-none">There will be 2 types of channel partnership (Inter Chan Part & Intra Chane Part).Doing partnership with other channels and promoting and sharing each others work will open whole new world of possibilities and functionalities in the app. For this the user needs to have his own channel through which he can partner with other channels. There are certain minimum requirements to do that.Also measures need to be taken to prevent terrorist and other activities</p>
+                    <img src="/images/channel-partner.svg" class="user-badges">
+                </div> 
+
+                <div class="d-inline-block mx-1" title="PRO Member of Unifiq">
+                    <p class="d-none">when user suggests channels different tags</p>
+                    <img src="/images/pro-member.svg" class="user-badges">
+                </div> 
+<!--                 <div class="col-sm-6">
+                <i class="fas fa-signature fa-sm"></i><span> Nickname : <%= user.nickname %> </span>
+                </div>
+                <div class="col-sm-6">
+                <i class="fas fa-link fa-sm"></i><span><a href="https://<%= user.site %>"> <%= user.site %> </a></span>
+                </div>
+                <div class="col-sm-6">
+                <i class="fas fa-birthday-cake fa-sm"></i><span> Born : <%= user.bornday%> <%= user.bornmonth%> </span>
+                </div>
+                <div class="col-sm-6">
+                <i class="fas fa-globe-americas fa-sm"></i><span> <%= user.location %> </span>
+                </div> -->
+                
+            </div>
+            <div class="row px-2" id="user-specs-text">
+                
+                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-1">
+                        <span id="para-dist"><a href="#"><b>99M</b> Followers</a></span>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-1 mb-2">
+                        <span id="para-dist"><a href="#"><b>27</b> Following</a></span>
+                    </div>
+                <% }else { %>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-1">
+                        <span id="para-dist"><b>99M</b> Followers</span>
+                    </div>
+        
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-1 mb-2">
+                        <span id="para-dist"><b>27</b> Following</span>
+                    </div>
+                <% } %>
+                
+
+                <div class="col-lg-2 col-md-none col-sm-none"></div>
+                <div class="col-lg-2 col-md-none col-sm-none"></div>
+        
+                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+
+
+
+                <% }else { %>
+
+                    <span>
+                        
+
+                                <% if (currentUser && user.followers.actFollowers.some(function (follower) { 
+                                    return follower.equals(currentUser._id);
+                                })) { %>
+                                <form id="followUser" action="/followuser/<%=user._id%>" method="POST">
+                                <div>
+                                    <button type="submit" class="btn btn-sm px-4 mb-1  b-r-2 btn-common-primary follow-user-btn"> Following
+                                        <div class="disp-loader d-inline-block">
+                                            
+                                        </div>
+                                    </button>
+                                </div> 
+                                </form> 
+                                <% } else { %> 
+                                <form id="followUser" action="/followuser/<%=user._id%>" method="POST">
+                                    <button type="submit" class="btn btn-sm px-4 mb-1 b-r-2 btn-common-primary follow-user-btn"> Follow
+                                        <div class="disp-loader d-inline-block">
+                                            
+                                        </div>  
+                                    </button>
+                                </form>
+                                <% } %> 
+
+
+                        
+                    </span>
+
+                <% } %>
+
+            </div>
+            
+            <div class="row profile-nav-box b-r-2">
+            
+                    <div class="profile-item col-xs-6 col-sm-3 col-lg-6 py-2 profile-item-box">
+                        <a class="profile-links" href="/profile/<%=user._id%>">Posts</a>
+                        <!-- Seperator -->
+                        <div class="topbar-divider d-sm-block" style="color:#000000"></div>
+                    </div>
+
+                    <div class="profile-item col-xs-6 col-sm-3 col-lg-6 py-2 profile-item-box">
+                        <a class="profile-links" href="#">Shares</a>
+                            <!-- Seperator -->
+                        <div class="topbar-divider d-sm-block" style="margin:auto 2px;"></div>
+                    </div>
+
+
+                <% if (currentUser && user._id.equals(currentUser._id)) { %>
+
+                <div class="profile-item col-xs-6 col-sm-3 col-lg-6 py-2 profile-item-box" >
+                <a class="profile-links" href="/bookmarks">Bookmarks</a>
+                            <!-- Seperator -->
+                <div class="topbar-divider d-sm-block" style="margin:auto 2px;"></div>
+                </div>
+
+                <div class="profile-item col-xs-6 col-sm-3 col-lg-6 py-2 profile-item-box">
+                <a class="profile-links" href="#">Shares</a>
+                </div>
+
+                <% }else { %>
+
+                    <div class="col-xs-6 col-sm-3 col-lg-6 py-2 profile-item-box">
+                        <a class="profile-links" href="#">Followers</a>
+                                    <!-- Seperator -->
+                        <div class="topbar-divider d-sp-block" style="margin:auto 2px;"></div>
+                    </div>
+        
+                    <div class="col-xs-6 col-sm-3 col-lg-6 py-2 profile-item-box" >
+                            <a class="profile-links" href="#">Following</a> 
+                            <!-- Seperator --><!-- Comments are pviews-->
+                        <div class="topbar-divider d-sp-block" style="margin:auto 2px;"></div>
+                    </div>
+
+                <% } %>
+
+            </div>
+
+            </div>
+            <div class="card mb-4 fill-unifiq-bg-color b-r-2">
+
+
+                <%- body -%>
+                
+
+            </div>
+            
+            
+        </div>
+
+        </div>
+        <div class="col-sm-none d-sm-none d-lg-block col-lg-4 b-r-2">
+            <% include ../partials/profile/rightSectProfMenu %>
+        </div>
+    </div>
+
+    <!-- Profile Plate End -->
+    <!-- //////////////////// -->
+
+    
+    
+    <% include ../partials/footer %>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/javascripts/functionalities.js"></script>
+    <script src="/javascripts/great-friend.js"></script>
+    <script src="/javascripts/post-edit.js"></script>
+    <script src="/javascripts/post-show.js"></script>
+    <script src="/javascripts/ajax-jquery/posts.js"></script>
+    <script src="/javascripts/ajax-jquery/user.js"></script>
+    <script src="/javascripts/jquery-custom-file-input.js"></script>
+    <script src="/javascripts/topic.js"></script>
+    <script src="/javascripts/vid.js"></script>
+    <!-- <script src="/javascripts/jquery-custom-file-input.js"></script> -->
+     <!-- The slashes are particularly important for templates to proper;y work in all views -->
+  </body>
+</html>

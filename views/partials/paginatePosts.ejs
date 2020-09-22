@@ -1,0 +1,38 @@
+<div style="margin: 20px 0px;"> <!-- (.page) gives current page no-->
+
+	<% 
+	let total = posts.pages;
+	let equal = 4;
+
+
+	var screenUpperLimit = posts.page + 2;
+	var screenLowerLimit = posts.page - 2;
+
+
+	if(screenUpperLimit >= posts.pages) {
+			screenUpperLimit = posts.pages;
+	} 
+
+	if(screenLowerLimit <= 1 ) {
+			screenLowerLimit = 1;
+	}
+	%>
+
+
+    <a href="/posts" style="color:red"> First Page</a>
+	<% if(posts.page - 1) { %>
+		<a href="/posts?page=<%= posts.page - 1 %>">Prev</a>
+	<% } %>
+
+	<% for(let i = screenLowerLimit; i <= screenUpperLimit; i++) { %>  <!-- (.pages) gives total pages no-->
+		<a href="/posts?page=<%= i %>"
+			<%= i === posts.page ? 'style=color:#000;' : '' %>
+		> <%= i %> </a>
+	<% } %> 
+
+	<% if((posts.page + 1) <= posts.pages) { %>
+		<a href="/posts?page=<%= posts.page + 1 %>">Next</a>
+	<% } %>
+	<br>
+</div>
+

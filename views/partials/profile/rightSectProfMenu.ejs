@@ -1,0 +1,228 @@
+<div class="wrap-rightsect bg-transparent" >
+  
+  <main>
+    
+    <!-- aside.left-sect-aside is given the attribute scroll -->
+    <aside class="text-white-600 left-sect-aside">
+
+<!--       <button type="button" class="btn btn-cancel-right-sect">
+        <i class="fas fa-2x fa-times-circle fa-cancel-right-sect"></i>
+      </button> -->
+
+
+
+
+
+      <div class="right-turn-sect-1">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="leftsectMenu">
+
+  <!-- Followed Topics card -->
+    <div class="card-body pb-1 pt-1 px-2 mb-3" style="border-radius:0.5rem;">
+
+      <div class="per-card-1">
+
+        <div class="parent-container">
+
+          <div class="left-prof-sect-following-topics">
+              
+        <div class="left-prof-sect-titles d-block mx-0 pb-1">
+          <a href="#" class="dec-none text-white-600">
+            Following Topics
+          </a>
+          <!-- This filter will be useful for other users so they can easily see accodingly -->
+
+
+          <!-- Filter start -->
+
+          <div class="btn-group float-right">
+
+              <button type="button" class="btn s-left-prof-filter-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/vert-search-filter-white.svg" class="s-left-prof-filter">
+              </button>          
+
+            <div class="dropdown-menu dropdown-menu-right bg-custom">
+
+              <div>
+                  <form action="/profile/<%= user._id %>/sortTopics/A-Z" method="POST" class="text-center py-1 toggle-options sortFollowingTopics hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">A - Z</button>
+                    <input class="d-none" type="number" name="following_topic_limit" value=5>
+                  </form>
+              </div>
+
+              <div>
+                  <form action="/profile/<%= user._id %>/sortTopics/RecentlyAdded" method="POST" class=" text-center py-1 toggle-options sortFollowingTopics hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Creation Date</button>
+                    <input class="d-none" type="number" name="following_topic_limit" value=5>
+                  </form>
+              </div>
+              
+                
+              <div>
+                  <form action="/profile/<%= user._id %>/specificSect" method="GET" class=" text-center py-1 toggle-options hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">
+                      See All
+                    </button>
+                  </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- left-prof-sect-titles END -->
+
+        <div class="followingTopics-list mt-1 px-1">
+
+        <!--  class="dec-none tog-topic-info" -->
+      <% for(let topic of user.followingTopics.actFollowingTopics.slice(0,5)){ %>
+        <a href="/topics/<%= topic._id %>/posts" class="dec-none actualTopics">
+          <div class="row leftsectMenu-nav" title="<%= topic.title %>">
+            <% if(topic.logo[0]){ %>
+            <img src="<%= topic.logo[0].url%>" alt="user">
+            <% }else{ %>
+            <img src="/images/backimg.jpg" alt="user">
+            <% } %>
+            <div class="title">
+              <%= topic.title %>
+            </div>
+          </div>
+        </a>
+      <% } %>
+
+          </div>
+
+          <% if(user.followingTopics.actFollowingTopics.length > 5){ %>
+            <div class="left-prof-sect-following-topics-see-more my-1">
+              <form action="/profile/<%= user._id %>/sortTopics/MoreFollowingTopics" method="POST" class="see-more-following-topics">
+              <button type="submit" class="btn btn-block see-more-prof-btn">
+                See More
+              </button>
+              </form>
+            </div>
+          <% } %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- card-body end -->
+
+<!-- ////////////////////////////////////////////////////////////////////// -->
+<!-- ////////////////////////////////////////////////////////////////////// -->
+
+  <!-- MYTOPICS Topics card -->
+    <div class="card-body pb-1 pt-1 px-2 mb-3" style="border-radius:0.5rem;">
+
+      <div class="per-card-1">
+
+        <div class="parent-container">
+
+          <div class="left-prof-sect-my-topics">
+              
+        <div class="left-prof-sect-titles d-block mx-0 pb-1">
+          <% if(currentUser && user._id.equals(currentUser._id)){ %>
+            <a href="#" class="dec-none text-white-600">
+              My Topics
+            </a>
+          <% }else{ %>
+            <a href="#" class="dec-none text-white-600">
+              User's Topics
+            </a>         
+          <% } %>
+          <!-- This filter will be useful for other users so they can easily see accodingly -->
+
+
+          <!-- Filter start -->
+
+          <div class="btn-group float-right">
+
+              <button type="button" class="btn s-left-prof-filter-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/vert-search-filter-white.svg" class="s-left-prof-filter">
+              </button>          
+
+            <div class="dropdown-menu dropdown-menu-right bg-custom">
+
+              <div>
+                  <form action="/profile/<%= user._id %>/sortTopics/A-Z" method="POST" class="text-center py-1 toggle-options sortMyTopics hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">A - Z</button>
+                    <input class="d-none" type="number" name="my_topic_limit" value=5>
+                  </form>
+              </div>
+
+              <div>
+                  <form action="/profile/<%= user._id %>/sortTopics/RecentlyAdded" method="POST" class=" text-center py-1 toggle-options sortMyTopics hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Creation Date</button>
+                    <input class="d-none" type="number" name="my_topic_limit" value=5>
+                  </form>
+              </div>
+              
+                
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Comments</button>
+
+                  </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- left-prof-sect-titles END -->
+
+        <div class="myTopics-list mt-1 px-1">
+
+        <!--  class="dec-none tog-topic-info" -->
+      <% for(let topic of user.myTopics.actMyTopics.slice(0,5)){ %>
+        <a href="/topics/<%= topic._id %>/posts" class="dec-none actualMyTopics">
+          <div class="row leftsectMenu-nav" title="<%= topic.title %>">
+            <% if(topic.logo[0]){ %>
+            <img src="<%= topic.logo[0].url%>" alt="user">
+            <% }else{ %>
+            <img src="/images/backimg.jpg" alt="user">
+            <% } %>
+            <div class="title">
+              <%= topic.title %>
+            </div>
+          </div>
+        </a>
+      <% } %>
+
+          </div>
+
+          <% if(user.myTopics.actMyTopics.length > 5){ %>
+            <div class="left-prof-sect-my-topics-see-more my-1">
+              <form action="/profile/<%= user._id %>/sortTopics/MoreMyTopics" method="POST" class="see-more-my-topics">
+              <button type="submit" class="btn btn-block see-more-prof-btn">
+                See More
+              </button>
+              </form>
+            </div>
+          <% } %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- card-body end -->
+
+
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+
+
+
+    </aside>
+        
+  </main>
+  
+</div>

@@ -1,0 +1,104 @@
+  <% layout('layouts/topic-sel-layout') -%>
+
+<!-- <div class="topic-search-cont">
+	<div class="all-topics-container d-block">
+		<input class="icon-topic-search cursor-at-end" type="text" placeholder="Search topic...">
+				<button class="topic-search"></button>
+	</div>	    
+</div> -->
+
+<!-- margin-top:2rem is used for showing that search-circle -->
+
+<div class="card" style="margin-top:0rem;">	
+
+	<div class="card-body topic-index-page py-1 px-2 mx-0" style="border-radius:0.5rem;">
+
+	    <div class="parent-container ">
+
+<div class="topic-index-first-half">
+			<!-- Topic  -->
+		<div class="topics-row">
+
+			<div class="my-1">
+	      		<h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline flw-upper"><%= leftMenuHigh %></h4>
+	      		<!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+	      		<br>
+	      		<!-- <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a> -->
+	      	</div>
+
+	      	<div class="row px-2 px-md-3 text-center">
+
+	      		
+	      		<% for(let topic of topics){ %>
+
+		      		<div class="col-12 p-2">
+		      		  <div class="custom-topic-black">
+			      			<a href="/topics/<%=topic._id%>/posts" class="dec-none">
+			      				<% if(topic.logo[0]){ %>
+			      				<div class="topic-logo-div">
+			      					<img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+			      				</div>
+			      				<% }else{ %>
+			      				<div class="topic-logo-div">
+			      					<img src="/images/backimg.jpg" class="topic-index-logo">
+			      				</div>
+			      				<% } %>
+			      				<div>
+			      					<p class="topic-name-index-p m-0"><span title="Verified by Unifiq"><img src="/images/verification-symbol.svg" class="verified-topic"></span><%= topic.title %></p>
+			      				</div> 
+			      			</a>
+			      			<div class="mb-1">
+			      				<p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+			      			</div>
+
+			      			<div class="topic-index-tags py-1 float-left text-center">
+			      				<% topic.tags.slice(0,4).forEach(function(tag){ %>
+			      				<div class="d-inline-flex single-tag px-1 mb-1">
+			      					<i class="fas fa-circle mt-1 tag-circle"></i> 
+			      					<span class="pl-1"><%= tag %></span>
+			      				</div>
+			      				<!-- <br> -->
+			      				<% }) %>
+
+			      			</div>
+
+			      			<br>
+
+			      			<div class="my-1">
+				      			<a href="#">
+				      				<p class="topic-category-name m-0"><%= topic.hub.title %></p>
+				      			</a>
+			      			</div>
+
+			      			<div class="topic-act-info mb-2 mt-1">
+								<div class="float-left taf-1">
+									<span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+								</div>
+								<!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->	
+								<div class="float-right taf-2">
+									<span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+								</div>
+								<!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+			      			</div>
+
+		      		  </div>
+		      		</div>
+
+
+	      		<% } %>
+	      		 	      		        			
+	      	</div>
+
+
+	      		<div class="my-3"></div>
+        		<hr  style="border:1px solid #696969;">
+		</div><!-- Topics Row End-->
+
+
+</div><!-- Topic Index Second Half End -->
+
+	    </div>
+
+	</div>
+
+</div>

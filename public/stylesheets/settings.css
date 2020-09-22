@@ -1,0 +1,100 @@
+/* Settings menu styling */
+.mini-side-bar {
+  width:250px;
+}
+
+.mini-submenu{
+  display:none;  
+  border-radius: 4px;
+  padding: 3px;  
+  position: relative;
+  width: 35px !important;
+
+}
+
+.mini-submenu:hover{
+  cursor: pointer;
+}
+
+.mini-submenu .icon-bar {
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  width: 22px;
+  margin-top: 3px;
+}
+
+.mini-submenu .icon-bar {
+  background-color: #000;
+}
+
+#slide-submenu{
+  background: rgba(0, 0, 0, 0.45);
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+.btn-mystic {
+  color: #fff;
+  background-color: #6775c4;
+  border-color: #6775c4;
+}
+
+.btn-mystic:hover {
+  color:#fff;
+  background-color: #676ac4;
+  border-color: #676ac4;
+}
+
+.list-mystic{
+  color:white;
+  font-weight:600;
+    background-color: #676ac4 !important;
+  border-color: #676ac4 !important;
+
+}
+
+.list-settings {
+  border:0px;
+  background-color: rgb(30, 30, 30);
+}
+
+a.a-set {
+  color:white !important;
+}
+
+a.a-set:hover{
+  text-decoration: none !important;
+}
+
+.rounded-set-optn {
+  padding-left:2.6rem;
+  padding-right:2.6rem;
+
+  border-radius:1.4rem;
+}
+
+.rounded-set-optn:hover {
+  background-color:rgb(50, 50, 50);
+}
+
+.rounded-set-optn.active {
+  background-color:#6775c4;
+}
+
+/*inner ones*/
+
+.a-set-inner {
+  border-radius:0.9rem !important;
+}
+
+.a-set-inner:hover {
+  background-color:rgb(50, 50, 50) !important;
+}
+
+.a-set-inner.active {
+  background-color:#6775c4 !important; 
+}

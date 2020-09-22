@@ -1,0 +1,547 @@
+<div class="wrap-rightsect bg-transparent" >
+  
+  <main>
+    
+    <!-- aside.left-sect-aside is given the attribute scroll -->
+    <aside class="text-white-600 left-sect-aside">
+
+<!--       <button type="button" class="btn btn-cancel-right-sect">
+        <i class="fas fa-2x fa-times-circle fa-cancel-right-sect"></i>
+      </button> -->
+
+
+
+
+
+      <div class="right-turn-sect-1">
+        <div class="active-people"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="leftsectMenu">
+
+        <div class="row" id="l-title" title="U Menu">
+          <div class="mx-auto">
+
+<!--           <div  class="left-menu-main-img d-inline-block">
+          <img src="/images/open-menu.svg" alt="user1">
+          </div>
+          <div class="left-menu-main-title d-inline-block">
+            U Menu
+          </div> -->
+
+        <% if(currentUser && currentUser._id.equals(user._id)){ %>
+          <div class="row leftsectMenu-nav gen" title="Manage Stuff">
+            <img src="/images/channel-settings-owner.svg" alt="user1">
+            <div class="title main-left-title">
+              Manage
+            </div>          
+          </div>
+        <% }else{ %>
+          <div class="row leftsectMenu-nav gen user-info-left py-0 my-0" title="User Info">
+            <img src="/images/user-info-left.svg" alt="user1">
+            <div class="title main-left-title">
+               Info
+            </div>          
+          </div>
+        <% } %>
+          </div>
+        </div>
+
+        <a href="/profile/<%=user._id%>" class="dec-none">
+          <div class="row leftsectMenu-nav" title="<%= currentUser.username %>'s Profile">
+            <img  class="img-profile" src="<%=user.profimage.secure_url%>" alt="user1">
+            <div class="title">
+              <%= user.username %>'s Profile
+            </div>
+            <!-- <span class="indicator online"></span> -->
+          </div>
+        </a>
+
+  <div class="card-body pb-1 pt-1 px-2 mb-3" style="border-radius:0.5rem;">
+
+    <div class="per-card-1">
+
+      <div class="parent-container">
+
+      <div class="left-prof-sect-intro">
+        <div class="left-prof-sect-titles d-block mx-0 pb-1">
+          <a href="#" class="dec-none text-white-600">
+            User Info
+          </a>
+          
+        <% if (currentUser && user._id.equals(currentUser._id)) { %>
+
+          <div class="btn-group float-right">
+
+              <button type="button" class="btn s-left-prof-filter-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/vert-search-filter-white.svg" class="s-left-prof-filter">
+              </button>          
+
+            <div class="dropdown-menu dropdown-menu-right bg-custom">
+              <div>
+                  <form action="/profile/<%= currentUser._id %>/editbio" method="GET" class="text-center py-1 toggle-options hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Edit Bio</button>
+                  </form>
+              </div>
+            </div>
+
+          </div>
+
+        <% } %>
+
+
+        </div>
+
+        <div class="left-prof-sect-intro-content">
+          
+            <div class="col-12 mb-2">
+              <% if(user.nickname){ %>
+                <i class="fas fa-signature fa-sm"></i><span><span class="slim-text"> Nickname</span> : <%= user.nickname %> </span>
+              <% }else{ %>
+                <i class="fas fa-signature fa-sm"></i><span><span class="slim-text"> Nickname</span> : <span class="text-gray-600">No nickname uploaded</span> </span>
+              <% } %>
+            </div>
+
+            <div class="col-12 mb-2">
+              <% if(user.site){ %>
+                <i class="fas fa-link fa-sm"></i><span><a href="https://<%= user.site %>"> <%= user.site %> </a></span>
+              <% }else{ %>
+                <i class="fas fa-link fa-sm"></i> <span class="text-gray-600">No site uploaded</span>
+              <% } %>
+            </div>
+
+            <div class="col-12 mb-2">
+              <% if(user.bornday){ %>
+                <i class="fas fa-birthday-cake fa-sm"></i><span> Born : <%= user.bornday%> <%= user.bornmonth%> </span>
+              <% }else{ %>
+                <i class="fas fa-birthday-cake fa-sm"></i><span> Born : <span class="text-gray-600">Not uploaded yet</span> </span>
+              <% } %>
+            </div>
+            <div class="col-12 mb-2">
+              <% if(user.location){ %>
+                <i class="fas fa-globe-americas fa-sm"></i><span> <%= user.location %> </span>
+              <% }else{ %>
+                <i class="fas fa-globe-americas fa-sm"></i> <span class="text-gray-600">Not uploaded yet</span>
+              <% } %>
+            </div>
+
+        </div>
+      </div>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="card-body pb-1 pt-1 px-2 mb-3" style="border-radius:0.5rem;">
+
+    <div class="per-card-1">
+
+      <div class="parent-container">
+
+      <div class="left-prof-sect-images d-block">
+
+        <div class="left-prof-sect-titles d-block mx-0 pb-1">
+          <a href="#" class="dec-none text-white-600">
+            <i class="fas fa-lg fa-images mt-2 post-create-icon-1"></i>
+            Images
+          </a>
+          <!-- This filter will be useful for other users so they can easily see accodingly -->
+
+
+          <!-- Filter start -->
+
+          <div class="btn-group float-right">
+
+              <button type="button" class="btn s-left-prof-filter-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/vert-search-filter-img.svg" class="s-left-prof-filter">
+              </button>          
+
+            <div class="dropdown-menu dropdown-menu-right bg-custom">
+
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Latest</button>
+
+                  </form>
+              </div>
+
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Likes</button>
+
+                  </form>
+              </div>
+              
+                
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Comments</button>
+
+                  </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- left-prof-sect-titles END -->
+
+        <div class="row left-prof-sect-images-content mt-2 pl-1">
+
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/Saitama+Cover.jpg">
+          </div>
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/backimg.jpg">
+          </div>
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/batman-cop.jpeg">
+          </div>
+
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/Saitama+Cover.jpg">
+          </div>
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/backimg.jpg">
+          </div>
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/batman-cop.jpeg">
+          </div>
+
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/Saitama+Cover.jpg">
+          </div>
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/backimg.jpg">
+          </div>
+          <div class="height-to-width-sq">
+            <img class="fit-sq-image" src="/images/batman-cop.jpeg">
+          </div>
+
+        </div><!-- img-content end -->
+
+        <div class="left-prof-sect-images-see-all mb-1">
+          <a href="#" class="btn btn-block see-all-prof-img-btn">
+            See All
+          </a>
+        </div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<!-- Video Card -->
+  <div class="card-body pb-1 pt-1 px-2 mb-3" style="border-radius:0.5rem;">
+
+    <div class="per-card-1">
+
+      <div class="parent-container">
+
+      <div class="left-prof-sect-images d-block">
+
+        <div class="left-prof-sect-titles d-block mx-0 pb-1">
+          <a href="#" class="dec-none text-white-600">
+            <img src="/images/video-camera.svg" class="s-left-prof-icons">
+            <!-- <i class="fas fa-lg fa-images mt-2 post-create-icon-1"></i> -->
+            Videos
+          </a>
+          <!-- This filter will be useful for other users so they can easily see accodingly -->
+
+
+          <!-- Filter start -->
+
+          <div class="btn-group float-right">
+
+              <button type="button" class="btn s-left-prof-filter-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/vert-search-filter-vid.svg" class="s-left-prof-filter">
+              </button>          
+
+            <div class="dropdown-menu dropdown-menu-right bg-custom">
+
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Latest</button>
+
+                  </form>
+              </div>
+
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Likes</button>
+
+                  </form>
+              </div>
+              
+                
+              <div>
+                  <form action="#" method="POST" class=" text-center py-1 toggle-options del-po-form hover-transparent-gray">
+                    <button type="submit" class=" text-white-600 hover-transparent-gray navs-dropdown-item" style="width:100%;">Sort By Comments</button>
+
+                  </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- left-prof-sect-titles END -->
+
+        <div class="row left-prof-sect-images-content mt-2 pl-1">
+
+          <div class="px-auto">
+
+            <video loop controls class="mx-auto" style="width:100%; height: auto;" muted>
+              <source src="/videos/sample.mp4" type="video/mp4">
+
+              <!-- fallback for browsers that don't support html -->
+              <source src="/videos/sample.webm" type="video/webm">
+ 
+              <!-- specifying subtitle files -->
+              <!-- <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+              <track src="subtitles_no.vtt" kind="subtitles" srclang="no" label="Norwegian"> -->
+             
+              <!-- fallback for browsers that don't support video tag -->
+              <a href="/invalid">download video</a>
+
+            </video>
+          </div>
+
+        </div><!-- img-content end -->
+
+        <div class="left-prof-sect-images-see-all mb-1">
+          <a href="#" class="btn btn-block see-all-prof-img-btn">
+            See All
+          </a>
+        </div>
+
+      </div><!-- btn group end -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Followed Topics card -->
+    <div class="card-body pb-1 pt-1 px-2 mb-3" style="border-radius:0.5rem;">
+
+      <div class="per-card-1">
+
+        <div class="parent-container">
+
+          <div class="following-topic">
+              
+          <div class="left-prof-sect-titles-following-topic">
+            Following Topics
+          </div>
+
+          <div class="left-prof-sect-topics-titles px-1">
+
+        <a href="#topic-info" class="dec-none tog-topic-info">
+          <div class="row leftsectMenu-nav" title="Current Topic">
+            <img src="/images/sampleUsProf/user2img.png" alt="user1">
+            <div class="title">
+              Current Topic
+            </div>
+          </div>
+        </a>
+
+                <a href="#topic-info" class="dec-none tog-topic-info">
+          <div class="row leftsectMenu-nav" title="Current Topic">
+            <img src="/images/sampleUsProf/user2img.png" alt="user1">
+            <div class="title">
+              Current Topic
+            </div>
+          </div>
+        </a>
+
+                <a href="#topic-info" class="dec-none tog-topic-info">
+          <div class="row leftsectMenu-nav" title="Current Topic">
+            <img src="/images/sampleUsProf/user2img.png" alt="user1">
+            <div class="title">
+              Current Topic
+            </div>
+          </div>
+        </a>
+
+                <a href="#topic-info" class="dec-none tog-topic-info">
+          <div class="row leftsectMenu-nav" title="Current Topic">
+            <img src="/images/sampleUsProf/user2img.png" alt="user1">
+            <div class="title">
+              Current Topic
+            </div>
+          </div>
+        </a>
+
+                <a href="#topic-info" class="dec-none tog-topic-info">
+          <div class="row leftsectMenu-nav" title="Current Topic">
+            <img src="/images/sampleUsProf/user2img.png" alt="user1">
+            <div class="title">
+              Current Topic
+            </div>
+          </div>
+        </a>
+
+
+          </div>
+
+          <div class="left-prof-sect-images-see-all my-1">
+            <a href="#" class="btn btn-block see-all-prof-img-btn">
+            See All
+            </a>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+        <a href="#topic-info" class="dec-none tog-topic-info">
+          <div class="row leftsectMenu-nav" title="Current Topic">
+            <img src="/images/sampleUsProf/user2img.png" alt="user1">
+            <div class="title">
+              Current Topic
+            </div>
+          </div>
+        </a>
+
+        <a href="/topics/new" class="dec-none">
+          <div class="row leftsectMenu-nav" title="Create Your Topic">
+            <img src="/images/creation.svg" alt="user1">
+            <div class="title">
+              Create Your Topic
+            </div>
+          </div>
+        </a>
+
+        <a href="/topics" class="dec-none">
+          <div class="row leftsectMenu-nav" title="Explore Topics">
+            <img src="/images/boostTopic.svg" alt="user1">
+            <div class="title">
+              Explore Topics
+            </div>
+          </div>
+        </a>
+
+        <div class="row leftsectMenu-nav gen" title="Customize u'r site">
+          <img src="/images/discordCustomize.svg" alt="user1">
+          <div class="title">
+            Customize u'r site
+          </div>          
+        </div>
+
+        <div class="row leftsectMenu-nav gen" title="Chat with friends">
+          <img src="/images/discordHi.svg" alt="user1">
+          <div class="title">
+            Chat with friends
+          </div>
+        </div>
+
+        <div class="row leftsectMenu-nav gen" title="Invite friends and earn extra emojis">
+          <img src="/images/discordInvite.svg" alt="user1">
+          <div class="title">
+            Invite friends
+          </div>          
+        </div>
+
+        <div class="row leftsectMenu-nav gen" title="All Settings">
+          <img src="/images/settings.svg" alt="user1">
+          <div class="title">
+            Settings
+          </div>          
+        </div>
+
+        <div class="row leftsectMenu-nav gen" title="All Settings">
+          <img src="/images/channel-settings-owner.svg" alt="user1">
+          <div class="title">
+            Channel Settings
+          </div>          
+        </div>
+
+        <div class="row leftsectMenu-nav" title="online">
+          <img src="/images/sampleUsProf/user2img.png" alt="user1">
+          <div class="title">
+            Saitama 2
+          </div>
+          <span class="indicator online"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="online">
+          <img src="/images/sampleUsProf/user3img.jpg" alt="user1">
+          <div class="title">
+            Goku 47
+          </div>
+          <span class="indicator online"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="offline">
+          <img src="/images/sampleUsProf/user4img.jpeg" alt="user1">
+          <div class="title">
+            Goku Dark Secret
+          </div>
+          <span class="indicator"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="online">
+          <img src="/images/sampleUsProf/user5img.jpg" alt="user1">
+          <div class="title">
+            Genos S Rank
+          </div>
+          <span class="indicator online"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="away">
+          <img src="/images/sampleUsProf/user6img.png" alt="user1">
+          <div class="title">
+            King S Rank 1
+          </div>
+          <span class="indicator away"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="offline">
+          <img src="/images/sampleUsProf/user7img.jpg" alt="user1">
+          <div class="title">
+            Fubuki
+          </div>
+          <span class="indicator online"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="offline">
+          <img src="/images/sampleUsProf/user8img.jpg" alt="user1">
+          <div class="title">
+            Gotetsu 
+          </div>
+          <span class="indicator"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="offline">
+          <img src="/images/sampleUsProf/user9img.jpeg" alt="user1">
+          <div class="title">
+            Sans Roboto
+          </div>
+          <span class="indicator"></span>
+        </div>
+        <div class="row leftsectMenu-nav" title="offline">
+          <img src="/images/sampleUsProf/user10img.jpeg" alt="user1">
+          <div class="title">
+            Gohan Saiyaan
+          </div>
+          <span class="indicator"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+
+
+
+    </aside>
+        
+  </main>
+  
+</div>

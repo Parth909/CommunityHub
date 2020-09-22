@@ -1,0 +1,8 @@
+<% layout('layouts/boilerplate') -%>
+<h1>New Category!</h1>
+
+<form action="/hubs" method="POST" enctype="application/x-www-form-urlencoded">
+	<div><input type="text" name="hub[title]" placeholder="Title" autofocus></div>
+
+	<input type="submit">
+</form>

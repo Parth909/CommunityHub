@@ -1,0 +1,408 @@
+<% layout('layouts/post-layout') -%>
+
+<!-- Card-body starts -->
+<% if(post.shpost){ %><!--for shared posts use different thing-->
+<div class="card-body">
+
+  <div class="per-card-1">
+
+
+
+    <div class="parent-container">
+
+      <div style="color:white;" data-toggle="modal" data-target="#options-modal">
+      <!-- <i class="fas fa-lg fa-ellipsis-h float-right"></i> -->
+
+      <div class="btn-group float-right " >
+        
+          <button type="button" id="option-button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-md fa-ellipsis-h"></i>
+          </button>
+        
+
+        <div class="dropdown-menu dropdown-menu-right">
+          <div>
+            <button id="toggle-options" class="navs-dropdown-item text-center py-1" method="POST">
+              <a onclick="javascript:history.go(-1)">Cancel</a>
+            </button>
+          </div>
+          
+          <div>
+            <button id="toggle-options" class="navs-dropdown-item text-center py-1" method="POST">
+              <i class="fas fa-pen"></i> Edit
+            </button>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+  <!-- text-part -->
+  <h6 class="text-white title px-1 py-2">Share On Your Page :- </h6>
+      
+
+
+      <div class="toggle-edit-post-form d-block">
+        <div class="row d-block mx-0">
+
+<!-- This id is of the shared post -->
+      <form action="/posts/<%= post._id %>/SHARED_POST?_method=PUT" method="POST" id="postEditForm" enctype="application/x-www-form-urlencoded">
+      <div class="col-12">
+        <p class="m-0">Title</p>
+        <input class="input-form-control bg-custom-black px-1 forpost mb-1 cursor-at-end" type="text" name="post[title]" value="<%=post.title%>" placeholder="Post title...">
+        <p class="m-0">Description</p>
+        <textarea class="input-form-control bg-custom-black px-1 forpostbody autoresizing cursor-at-end" name="post[description]" placeholder="Start Typing..."autofocus><%=post.description%></textarea>
+      </div>
+        <div class="my-2"></div>
+        <hr  style="border:0.5px solid rgb(124, 124, 124);">
+
+
+<!-- ---------------- SHARED POST START -------------- -->
+  <div class="card-body my-1 pb-1 pt-1 pl-0 shared-card">
+
+    <div class="per-card-1">
+
+      <div class="parent-container">
+
+
+<!-- Image part -->
+<!-- IN NEWSHARE>EJS it is simple post bcz post was not created yet-->
+<!-- here it is [POST.SHPOST..........] -->
+    <div class="d-block">
+          <a href="/profile/<%=post.shpost.author._id%>" class="post-author-names pl-1">
+      <span class="badge">
+      <img src="<%=post.shpost.author.profimage.secure_url%>" class="modal-image"/>
+    </span><%= post.shpost.author.username %></a>
+    <div class="mb-1"></div>
+      <h5 class="text-white title px-2"><%=post.shpost.title%></h5>
+
+      <!-- READ MORE LESS FUNCTIONLITY(Remember in the post word "comment" is used for toggling) -->
+      <div class="shared-card-color comment more">
+        <%=post.shpost.description%>
+      </div>
+    </div>
+   
+    <% if(post.shpost.images.length == 0){ %>
+
+    <% }else if(post.shpost.images.length == 1){ %>
+
+      <div class="image-row pt-2 pb-1">
+        <% post.shpost.images.forEach(function(image) { %>
+          <div class="col-xs-12 float-left pr-2 pic-container">
+            
+            <img src="<%= image.url %>" class="img-thumbnail"/>
+
+          </div>
+        <% }); %>
+      </div>
+
+    <% }else{ %>
+
+
+
+    <div class="post-images-grid ml-2">
+      <div class="image-row ml-1 pt-2 pb-1">
+        <% post.shpost.images.forEach(function(image) { %>
+          <div class="image-column mb-1">
+    
+            <img src="<%= image.url %>" class="img-fluid"/>
+            
+          </div>
+        <% }); %> 
+          <div class="centered text-center">
+              <p class="m-0">Tap to see more</p>
+              <!-- <p>What a beautiful sunrise</p> -->
+          </div>
+      </div>
+    </div> 
+
+
+
+      <div class="row pl-3 d-none sep-images">
+
+        <% post.shpost.images.forEach(function(image) { %>
+          <div class="col-xs-12 float-left pr-2 pic-container">
+            
+            <img src="<%= image.url %>" class="img-thumbnail"/>
+
+
+          </div>
+        <% }); %>
+              <div class=" mx-auto text-white">
+                <button class="options_minimize__link"> &times; Minimize </button>
+                <!-- <p>What a beautiful sunrise</p> -->
+              </div>
+      </div>
+
+    <% } %>
+
+
+<!--   <a href="#" class="btn btn-sm" id="support-btn"></a>
+  <a href="#" class="btn btn-sm float-right " id="share-btn" data-toggle="tooltip" data-placement="top" title="Share on your page"></a> -->
+  <div class="row mx-2">
+
+    <div class="col-xs-6 pt-2" id="like-no">
+      <a href="/posts/<%=post._id%>/likes" class="ml-2">
+      <span class="likes-val"></span>
+      <%= `${post.shpost.likes.length} Like${post.shpost.likes.length === 1 ? '' : 's'}` %>
+      </a>    
+      </div>
+    <div class="col-xs-6 pt-2 text-right" id="like-no">500 Comments</div>
+  </div>
+
+
+
+  
+    </div> <!--div class="parent-container"-->
+
+
+  </div>
+
+  </div><!-- div-card (end) of shared card-->
+<!-- ---------------- SHARED POST END -------------- -->
+
+        <!-- SUBMIT BUTTON -->
+        <div class="col-xs-6 col-lg-6 mx-auto mt-3">
+          <button class="post-item-box btn-block py-2" type="submit">
+                    <!-- #comment is nothing but used to stop from going to the top of page -->
+            Submit<!-- Comments are pviews-->
+          </button>
+        </div>
+
+      </form>
+      
+
+
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+  <!-- 
+    <span>
+      <div class="px-1">
+        <a class="btn bg-white btn-sm" id="edit-post"><i class="fas fa-pen"></i> Edit</a>
+      </div>
+    </span> -->
+
+      <div class="my-3"></div>
+      <hr  style="border:0.5px solid #ffffff;">
+  
+    </div> <!--div class="parent-container"-->
+
+
+  </div>
+
+</div>
+
+
+
+<!-- Shared Post -->
+<% } else { %> 
+<!-- for normal post -->
+
+
+<div class="card-body">
+
+  <div class="per-card-1">
+
+
+
+    <div class="parent-container">
+
+      <div style="color:white;" data-toggle="modal" data-target="#options-modal">
+      <!-- <i class="fas fa-lg fa-ellipsis-h float-right"></i> -->
+
+      <div class="btn-group float-right " >
+        
+          <button type="button" id="option-button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-md fa-ellipsis-h"></i>
+          </button>
+        
+
+        <div class="dropdown-menu dropdown-menu-right">
+          <div>
+            <button id="toggle-options" class="navs-dropdown-item text-center py-1" method="POST">
+              <a onclick="javascript:history.go(-1)">Cancel</a>
+            </button>
+          </div>
+          
+          <div>
+            <button id="toggle-options" class="navs-dropdown-item text-center py-1" method="POST">
+              <i class="fas fa-pen"></i> Edit
+            </button>
+          </div>
+          
+          <div>
+            <button id="toggle-options" class="navs-dropdown-item text-center py-1" method="POST">
+              <a href="/posts/<%=post.id%>/bookmark">Bookmark</a>
+            </button>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+
+	<!-- text-part -->
+	<h5 class="text-white title px-2 py-2">Edit Post :- </h5>
+		  
+
+
+      <div class="toggle-edit-post-form d-block">
+        <div class="row d-block mx-0">
+
+		  <form action="/posts/<%= post.id %>/POST?_method=PUT" method="POST" id="postEditForm" enctype="multipart/form-data">
+			<div class="col-12">
+        <p class="m-0">Post Title</p>
+				<input class="input-form-control bg-custom-black px-1 forpost mb-1 cursor-at-end" type="text" name="post[title]" value="<%= post.title  %>" placeholder="Post title..."></input>
+        <p class="m-0">Post Description</p>
+        <textarea class="input-form-control bg-custom-black px-1 forpostbody autoresizing cursor-at-end" name="post[description]" placeholder="Start Typing..." value="Great" autofocus><%= post.description%></textarea>
+			</div>
+        <div class="my-2"></div>
+        <hr  style="border:0.5px solid rgb(124, 124, 124);">
+        <p class="m-0">You can upload total <b>4</b> images</p>
+        <p class="m-0">Choose Images to delete :- </p>
+			<div class="row pl-2">
+				<% post.images.forEach(function(image, i) { %>
+					<div class="col-xs-12 float-left pr-2 pic-container">
+            <div >
+              <label class="label top-left-1 px-1" for="image<%= i %>">
+                <input type="checkbox" name="deleteImages[]" class="label__checkbox imageDeleteCheckbox top-left-2 mt-1" id="image<%= i %>" value="<%= image.public_id %>">
+                <span class="label__text">
+                  <span class="label__check">
+                    <i class="fa fa-md fa-check icon"></i>
+                  </span>
+                  <span class="pic-delete">Delete</span>
+                </span>
+              </label>
+              <!-- <label class="top-left-1 px-1" for="image<%= i %>">Delete?</label> -->
+              <!-- <input type="checkbox" name="deleteImages[]" class="imageDeleteCheckbox top-left-2 mt-1" id="image<%= i %>" value="<%= image.public_id %>"> -->
+            </div>
+            <img src="<%= image.url %>" class="img-thumbnail"/>
+            <div class="my-1"></div>
+            <hr  style="border:0.5px solid rgb(124, 124, 124);">
+					</div>
+				<% }); %>
+      </div>
+
+			<div class=" bg-custom-black">
+				<button class="btn btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+        <a class="btn btn-cancelpost" onclick="javascript:history.go(-1)">Cancel</a>
+        <p class="m-0">To upload New images(Click Below)</p>
+				<div class="parent-container">
+					<input type="file" id="imageUpload" class="inputfile btn btn-file" accept="images/*" name="images" data-multiple-caption="{count} files selected" multiple>
+					<label for="imageUpload" class="btn custom-file-upload mt-2 pt-1 pb-0"><i class="fas fa-lg fa-images"></i> <span></span></label>
+				</div>
+			</div>
+		  </form>
+		  
+
+        </div>
+      </div>
+      
+      <div class="my-1"></div>
+      <hr  style="border:0.5px solid rgb(124, 124, 124);">
+
+  <div class="my-2"></div>
+  
+  <div class="row mx-2">
+    <div class="col-xs-6 m-0">
+      <a href="#support"><button class="options_support__link float-left m-0" data-toggle="tooltip" data-placement="top" title="Support <%=currentUser.username%>">Support <i class="fas fa-plus"></i></button></a>
+    </div>
+    <div class="col-xs-6 m-0">
+      <a href="#share"><button class="options_share__link float-right m-0" data-toggle="tooltip" data-placement="top" title="Share on your page">Share <i class="fas fa-share"></i></button></a>
+    </div>
+  </div>
+
+  <div class="row mx-2">
+
+    <div class="col-xs-6 pt-2" id="like-no">
+      <a href="/posts/<%=post._id%>/likes">
+      <span class="likes-val"></span>
+      <%= `${post.likes.length} Like${post.likes.length === 1 ? '' : 's'}` %>
+      </a>    
+      </div>
+    <div class="col-xs-6 pt-2 text-right" id="like-no">500 Comments</div>
+  </div>
+  <div class="my-1"></div>
+  <hr  style="border:0.5px solid rgb(124, 124, 124);">
+
+
+
+
+
+              <!-- Authentic options format -->
+              <div class="row mx-1 my-1">
+  
+                <div class="col-xs-6 col-lg-6">
+                  <form action="/posts/<%=post._id%>/like" method="POST" class="like-form text-center">
+                  <% if (currentUser && post.likes.some(function (like) { 
+                      return like.equals(currentUser._id);
+                  })) { %>
+                    <button class="liked-btn post-item-box btn-block py-1 like-btn">
+                      <div style="font-weight: 600;">
+                        <i class="fas fa-thumbs-up"></i> Liked
+                      </div>
+                    </button>
+                  <% } else { %> 
+                    <button class="post-item-box btn-block py-1 like-btn">
+                      <i class="fas fa-thumbs-up"></i> Like
+                    </button>
+                  <% } %>
+                  </form> <!-- don't worry it works perfectly fine(see in sublime text) -->
+                </div>
+              
+                <div class="col-xs-6 col-lg-6">
+                  <button  class="post-item-box btn-block comment-input-toggle py-1">
+                    <!-- #comment is nothing but used to stop from going to the top of page -->
+                    <a href="#comment" class="post-navs"><i class="far fa-comment-alt"></i> Comment</a> <!-- Comments are pviews-->
+                  </button>
+                </div>
+                  
+              
+              </div>
+
+              <div class="toggle-comment-post-form d-none">
+
+                <hr  style="border:0.5px solid rgb(124, 124, 124);">
+
+                <div class="row d-block mx-1">
+                  <div class="col-12">
+                    <input class="input-form-control bg-custom-black px-1 forcomment mb-1" placeholder="Write comment..." autofocus></input>
+                  </div>
+                  <div class=" bg-custom-black">
+                    <button class="btn btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+                    <button class="btn btn-cancelcomment">Cancel</button>
+                    <div class="parent-container">
+                      <input type="file" id="file-upload" class="inputfile btn btn-file" name="image" data-multiple-caption="{count} files selected" multiple>
+                      <label for="file-upload" class="btn custom-file-upload mt-2 pt-1 pb-0"><i class="far fa-lg fa-image"></i><span></span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  <!-- 
+    <span>
+      <div class="px-1">
+        <a class="btn bg-white btn-sm" id="edit-post"><i class="fas fa-pen"></i> Edit</a>
+      </div>
+    </span> -->
+
+      <div class="my-3"></div>
+      <hr  style="border:0.5px solid #ffffff;">
+  
+    </div> <!--div class="parent-container"-->
+
+
+	</div>
+
+</div>
+<% } %>

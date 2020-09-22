@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- multipart/form-data - Represents a Multipart form. This type of form is used when the user wants to upload files -->
+	
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Register</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="/stylesheets/great-friend.css" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel="stylesheet">
+
+</head>
+
+<body  class="bubbles sectional text-left blue-yellow bubble-wrap">
+      
+  <div class="container px-1">
+
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+        <!-- Login container body -->
+            <!-- Nested Row within Card Body -->
+            <div class="row py-5">
+              <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+              <div class="col-sm-0 col-lg-3"></div>
+
+              <div class="col-sm-12 col-lg-6">
+
+              <div class="text-center"><% include ./partials/flash-messages %></div>
+  
+<!--   <div class="login-card-black d-block">
+      <div class="container">
+        
+        <div id="upload-demo-wrap">
+            <div id="upload-demo">
+              
+            </div>  
+        </div>
+
+        <div class="actions">
+          
+          <a class="btn file-btn">
+            <span>Upload</span>
+            <input type="file" id="upload" name="">
+          </a>
+          <button class="upload-results">
+            Result
+          </button>
+        </div>
+
+
+      </div>
+
+  </div>  -->           
+                    
+              <div class="login-card-black d-block">
+                <div class="p-2 d-block">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-100">Just One More Step !</h1>
+                  </div>
+              <form class="user" action="/register2/<%=currentUser._id%>" method="POST" enctype="multipart/form-data" autocomplete="off">
+
+                <div class="form-group p-0 mb-4">
+
+
+
+                  <div class="text-center">
+
+                  <div class="preview-profimage">
+                    <img class="square-profimage" src="/images/prof.svg">
+                  </div>
+
+                  <label for="profimage" class="m-2 btn btn-common-primary btn-sm">Profile Image</label>
+                  <input type="file" id="profimage" class="d-none" name="profimage">                    
+
+                  </div>
+
+
+                <div class="form-group p-0 mb-4">
+                  <label for="status">Status<span><small>(*optional)</small></span></label>
+                    <input class="form-control login-user-input" type="text" id="status" name="status" placeholder="Status">
+                </div>
+                <div class="form-group p-0 mb-4">
+                  <label for="nickname">Nickname<span><small>(*optional)</small></span></label>
+                  <input class="form-control login-user-input" type="text" id="nickname" name="nickname" placeholder="Nickname">
+                </div>
+
+                <input type="submit" value="Continue" class="btn btn-common-primary btn-block">
+
+              </form>
+
+                  <div class="text-center mt-1 mb-3">
+                    <span class="small">Already have an account ?</span><a class="small login-links" href="/login"> Login</a>
+                  </div>
+                  
+                </div>
+              </div>
+
+              </div>
+
+              
+              <div class="col-sm-0 col-lg-3"></div>
+
+            </div>
+          
+<!-- Login Container body end -->
+
+      <!-- <div class="col-md-6 col-lg-5 col-xl-4 d-flex align-items-center">
+        <div>
+          <h1 class="h2">Enterprise Hosting that's out of this world</h1>
+          <p class="h-subhead">Pilot your website on the only platform built for the AWS Cloud</p>
+          <a class="btn btn-lg orange" href="https://www.solodev.com/free-trial/" target="_blank">Start for Free</a>
+        </div>
+      </div> -->
+
+
+      
+    
+
+
+
+  
+
+
+    </div>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/javascripts/great-friend.js"></script>
+  <script src="/javascripts/register2.js"></script>
+
+
+</html>

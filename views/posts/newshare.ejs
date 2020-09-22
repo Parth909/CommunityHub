@@ -1,0 +1,278 @@
+<% layout('layouts/post-layout') -%>
+
+<!-- Card-body starts -->
+
+<div class="card-body b-r-2">
+
+  <div class="per-card-1">
+
+
+
+    <div class="parent-container">
+
+      <div style="color:white;" data-toggle="modal" data-target="#options-modal">
+      <!-- <i class="fas fa-lg fa-ellipsis-h float-right"></i> -->
+
+      <div class="btn-group float-right " >
+        
+          <button type="button" class="option-button btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-md fa-ellipsis-h"></i>
+          </button>
+        
+
+        <div class="dropdown-menu dropdown-menu-right">
+          <div>
+            <button id="toggle-options" class="navs-dropdown-item text-center py-1" method="POST">
+              <a onclick="javascript:history.go(-1)">Cancel</a>
+            </button>
+          </div>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+
+  <!-- text-part -->
+  <h5 class="text-white title px-1 py-2"><img src="/images/share.svg" style="height:37px; width:37px;"> Share On Your Page </h5>
+      
+
+
+      <div class="toggle-edit-post-form d-block">
+        <div class="row d-block mx-0">
+
+<!-- This id is of the shared post -->
+      <form action="/topics/<%= topic._id %>/posts/<%= post._id %>/share/POST" method="POST" id="postEditForm" enctype="application/x-www-form-urlencoded">
+      <div class="col-12">
+        <!-- <p class="m-0">Title</p> -->
+        <input class="input-form-control bg-custom-black px-1 forpost mb-1" type="text" name="sharedpost[title]" placeholder="Post title..." autocomplete="off" maxlength="50">
+        <p class="m-0">Description</p>
+        <textarea class="input-form-control bg-custom-black px-1 forpostbody autoresizing" name="sharedpost[description]" placeholder="Start Typing..."autofocus autocomplete="off" maxlength="270"></textarea>
+      </div>
+        <div class="my-2"></div>
+        <hr  style="border:0.5px solid rgb(124, 124, 124);">
+
+
+<!-- ---------------- SHARED POST START -------------- -->
+  <div class="my-1"></div>
+  <!-- <hr  style="border:0.5px solid rgb(124, 124, 124);" class="mx-2"> -->
+
+
+
+    <div class="card-body mt-1 mb-0 pb-1 pt-1 pl-0 shared-card pr-1">
+
+      <div class="per-card-1">
+
+        <div class="parent-container-sh">
+
+
+<!-- THE OPTION MENU -->
+
+        <div class="btn-group float-right shared-post-option-menu">
+          
+            <button type="button" class="option-button-2 btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-md fa-ellipsis-h"></i>
+            </button>
+          
+
+          <div class="dropdown-menu dropdown-menu-right">
+
+            <div>
+              
+                <!-- The SHARED POST IS NOTHING BUT THE NORMAL "POST" -->
+                <a href="/topics/<%= topic._id %>/posts/<%=post._id%>/POST" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-expand"></i> Show Full Opinion
+                </a>
+              
+            </div>
+
+            <div>
+              
+                <!-- The SHARED POST IS NOTHING BUT THE NORMAL "POST" -->
+                <a href="/topics/<%= topic._id %>/posts/<%=post._id%>/share/POST" class="toggle-options edit-post-input dropdown-item text-center py-1" >
+                  <i class="fas fa-share-alt"></i> Share this post
+                </a>
+              
+            </div>
+
+          </div>
+        </div>
+
+<!-- OPTION MENU END -->
+
+
+      <div class="d-block">
+            <a href="/profile/<%=post.author._id%>" class="post-author-names pl-1">
+        <span class="badge">
+        <img src="<%=post.author.profimage.secure_url%>" class="modal-image"/>
+      </span><%= post.author.username %></a>
+      <div class="mb-1"></div>
+        <h5 class="text-white title px-2"><%=post.title%></h5>
+
+        <!-- READ MORE LESS FUNCTIONLITY(Remember in the post word "comment" is used for toggling) -->
+        <div class="pr-1">
+          <div class="shared-card-color comment more">
+            <%=post.description%>
+          </div>
+        </div>
+      </div>
+     
+      <% if(post.images.length == 0){ %>
+
+      <% }else if(post.images.length == 1){ %>
+
+      <div class="post-images-grid sh-grid-border">
+          <% post.images.forEach(function(image) { %>
+            <div class="post-image-wrapper d-inline p-0 m-0">
+
+              <div class="each-post-img-container single-post-sh-image py-2 px-1">
+                <img class="cr-post-images p-0" src="<%= image.url %>">
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+      <% }else{ %>
+
+        <% if(post.images.length === 2 || post.images.length === 4){ %>
+          <div class="post-images-grid sh-grid-border pl-1 py-2">
+              <% post.images.forEach(function(image) { %>
+                <div class="post-image-wrapper d-inline p-0 m-0">
+                  <div class="each-post-img-container double-post-image d-inline">
+                    <img class="cr-post-double-images" src="<%= image.url %>">
+                  </div>
+                </div>
+              <% }); %>
+              <div class="centered text-center">
+                <p class="m-0">Tap to zoom</p>
+              </div>
+          </div> 
+        <% }else if(post.images.length === 3){ %>
+
+          <div class="post-images-grid sh-grid-border pl-1 py-2">
+            <% var triCounter = 0 %>
+              <% post.images.forEach(function(image) { %>
+
+                <% triCounter++ %>
+                <% if(triCounter !== 3){ %>
+                  <div class="post-image-wrapper d-inline p-0 m-0">
+
+                    <div class="each-post-img-container triple-post-sh-image d-inline">
+                      <img class="cr-post-triple-2-images p-0 pr-img1" src="<%= image.url %>">
+                    </div>
+                  </div>
+                <% }else{ %>
+                  <div class="post-image-wrapper d-inline p-0 m-0">
+
+                    <div class="each-post-img-container triple-post-sh-image triple-last-sh-img">
+                      <img class="cr-post-images p-0 pr-1" src="<%= image.url %>">
+                      <!-- to counter effect the pl-1 of post-images-grid pr-1 is used -->
+                    </div>
+                  </div>
+                <% } %>
+
+
+              <% }); %>
+              <div class="centered text-center">
+                <p class="m-0">Tap to zoom</p>
+              </div>
+          </div> 
+        <% } %>
+
+
+        <!-- For Showing Seperate images -->
+
+      <div class="post-images-grid sh-grid-border sep-images sh-sep-images d-none">
+          <% post.images.forEach(function(image) { %>
+        <div class="post-image-wrapper d-inline p-0 m-0">
+
+          <div class="each-post-img-container sep-post-images py-1 px-1">
+            <img class="cr-post-images p-0 h-200-auto" src="<%= image.url %>">
+          </div>
+        </div>
+          <% }); %>
+            <div class=" mx-auto text-white">
+                <button type="button" class="options_minimize__link"><i class="fas fa-compress"></i> Minimize </button>
+                <!-- <p>What a beautiful sunrise</p> -->
+            </div>
+      </div>
+
+      <% } %>
+
+
+  <!--   <a href="#" class="btn btn-sm" id="support-btn"></a>
+    <a href="#" class="btn btn-sm float-right " id="share-btn" data-toggle="tooltip" data-placement="top" title="Share on your page"></a> -->
+<!--     <div class="row mx-2">
+
+      <div class="col-xs-6 pt-2 sh-like-no">
+        <a href="/topics/<%= topic._id %>/posts/<%=post._id%>/likes/POST" class="ml-2">
+        <span class="likes-val"></span>
+        <%= `${post.likes.length} Like${post.likes.length === 1 ? '' : 's'}` %>
+        </a>    
+        </div>
+      <div class="col-xs-6 pt-2 text-right sh-comm-no">
+        <a href="/topics/<%= topic._id %>/posts/<%=post._id%>/POST">
+        <span class="likes-val"></span>
+        <%= `${post.pviews.length} Comment${post.pviews.length === 1 ? '' : 's'}` %>
+        </a>        
+      </div>
+
+    </div> -->
+
+
+
+    
+      </div> <!--div class="parent-container"-->
+
+
+    </div>
+
+    </div><!-- div-card (end) of shared card-->
+
+
+
+<!-- ---------------- SHARED POST END -------------- -->
+
+        <!-- SUBMIT BUTTON -->
+        <div class="col-xs-6 col-lg-6 mx-auto mt-3">
+          <button class="btn-submit-share btn-block py-2" type="submit">
+                    <!-- #comment is nothing but used to stop from going to the top of page -->
+            <i class="fas fa-share-alt"></i> Share<!-- Comments are pviews-->
+          </button>
+        </div>
+
+      </form>
+      
+
+
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+  <!-- 
+    <span>
+      <div class="px-1">
+        <a class="btn bg-white btn-sm" id="edit-post"><i class="fas fa-pen"></i> Edit</a>
+      </div>
+    </span> -->
+
+      <div class="my-3"></div>
+
+  
+    </div> <!--div class="parent-container"-->
+
+
+  </div>
+
+</div>
+
+<!-- Shared Post -->
+

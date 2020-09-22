@@ -1,0 +1,1542 @@
+                <li>
+                  <div class="dropdown show">
+                    <div class="btn-group float-right">
+                            <button type="button" id="option-button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(20, 20, 20, .7);">
+                              <i class="fas fa-md fa-ellipsis-h"></i>
+                            </button>
+                      <div class="dropdown-menu dropdown-menu-right mr-1 text-right" aria-labelledby="option-button" style="background:0px;border:0px;">
+                        <div class="com-optn-box d-inline pt-0 mt-0">
+                          
+
+                          ${data.modelObj.shpost ? `<form class="del-po-co-form d-inline" action="/posts/${data.modelObj._id}/pviews/${data.ppview._id}/SHARED_POST" method="POST" class="text-center d-inline" style="cursor:pointer;">
+                          <button class="btn-sm btn-com-optn" type="submit">
+                          <i class="fas fa-trash"></i>
+                          </button>
+                          </form>` : `<form class="del-po-co-form d-inline" action="/posts/${data.modelObj._id}/pviews/${data.ppview._id}/POST" method="POST" class="text-center d-inline" style="cursor:pointer;">
+                              <button class="btn-sm btn-com-optn" type="submit">
+
+                                <i class="fas fa-trash"></i>
+                              </button>
+                            </form>`}            
+
+                          <button class="btn-sm btn-com-optn com-inp-tog">
+                            <i class="fas fa-pen"></i>
+                          </button>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+                    <div class="comment-display">
+
+                      <a href="/profile/${data.ppview.author._id}" class="post-author-names ">
+                      <span class="badge">
+
+                      <img src="${data.ppview.author.profimage.secure_url}" class="modal-image-2">
+                      </span>${data.ppview.author.username}</a>
+
+                      <div class="comment-div pl-1">
+
+                        <p>${data.ppview.body}</p>
+                        <!-- btndropdown -->
+                      </div>
+
+                    </div> 
+
+                <div class="toggle-comment-edit-form d-none">
+                  <div class="row d-block mx-1">
+                  <form class="d-inline ed-po-co-form" action="/posts/${data.modelObj._id}/pviews/${data.ppview._id}" method="POST" id="postEditForm" enctype="application/x-www-form-urlencoded">
+                    <div class="col-12">
+                      <textarea class="input-form-control-com bg-custom-black px-1 autoresizing cursor-at-end forcomment-edit" name="pview[body]" placeholder="Edit Comment..." autofocus>${data.ppview.body}</textarea>
+                    </div>
+                    <div class=" bg-custom-black d-inline-block">
+                      <button class="btn d-inline btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+
+                      <div class="comment-pic-container">
+                        <!-- image in comments -->
+                      </div>
+                    </div>
+                  </form>
+                      <button class="btn d-inline btn-cancelcomment-edit">Cancel</button>
+
+                  </div>
+                </div>
+              </li>
+
+<!-- TESTING WETHER THE ELEMENTS MATCH -->
+<!--1)Ajax Test Element -->
+<li>
+                  <div class="dropdown show">
+                    <div class="btn-group float-right">
+                            <button type="button" id="option-button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(20, 20, 20, .7);">
+                              <i class="fas fa-md fa-ellipsis-h"></i>
+                            </button>
+                      <div class="dropdown-menu dropdown-menu-right mr-1 text-right" aria-labelledby="option-button" style="background:0px;border:0px;">
+                        <div class="com-optn-box d-inline pt-0 mt-0">
+                          
+
+                          <form class="del-po-co-form d-inline" action="/posts/5ec394fe6e2f560c91a7942a/pviews/5ec912a30e31eb111c739d5f/SHARED_POST" method="POST" style="cursor:pointer;">
+                          <button class="btn-sm btn-com-optn" type="submit">
+                          <i class="fas fa-trash"></i>
+                          </button>
+                          </form>            
+
+                          <button class="btn-sm btn-com-optn com-inp-tog">
+                            <i class="fas fa-pen"></i>
+                          </button>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+                    <div class="comment-display">
+
+                      <a href="/profile/5ea9bcab1f1a2325a17ef9d3" class="post-author-names ">
+                        <span class="badge">
+
+                        <img src="https://res.cloudinary.com/unifiq909/image/upload/v1588182475/uni1/wall39bc448184366d0ec66ac63032ddafc26.jpg" class="modal-image-2">
+                      </span>parth2</a>
+
+                      <div class="comment-div pl-1">
+
+                        <p>Great Comment</p>
+                        <!-- btndropdown -->
+                      </div>
+
+                    </div> 
+
+                <div class="toggle-comment-edit-form d-none">
+                  <div class="row d-block mx-1">
+                  <form class="d-inline ed-po-co-form" action="/posts/5ec394fe6e2f560c91a7942a/pviews/5ec912a30e31eb111c739d5f" method="POST" id="postEditForm" enctype="application/x-www-form-urlencoded">
+                    <div class="col-12">
+                      <textarea class="input-form-control-com bg-custom-black px-1 autoresizing cursor-at-end forcomment-edit" name="pview[body]" placeholder="Edit Comment..." autofocus="">Great Comment</textarea>
+                    </div>
+                    <div class=" bg-custom-black d-inline-block">
+                      <button class="btn d-inline btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+
+                      <div class="comment-pic-container">
+                        <!-- image in comments -->
+                      </div>
+                    </div>
+                  </form>
+                  <button class="btn d-inline btn-cancelcomment-edit">Cancel</button>
+
+                  </div>
+                </div>
+</li>
+
+<!--1)Original Element -->
+<li>
+        
+  <div class="dropdown show">
+    <div class="btn-group float-right">
+            <button type="button" id="option-button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(20, 20, 20, .7);">
+              <i class="fas fa-md fa-ellipsis-h"></i>
+            </button>
+      <div class="dropdown-menu dropdown-menu-right mr-1 text-right" aria-labelledby="option-button" style="background:0px;border:0px;">
+        <div class="com-optn-box d-inline pt-0 mt-0">
+          
+                      
+            <form class="del-po-co-form d-inline" action="/posts/5ec2cf864da0e02c3277d911/pviews/5ec912370e31eb111c739d5d/SHARED_POST?_method=DELETE" method="POST" style="cursor:pointer;">
+              <button class="btn-sm btn-com-optn" type="submit">
+
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+
+          
+
+          <button class="btn-sm btn-com-optn com-inp-tog">
+            <i class="fas fa-pen"></i>
+          </button>
+        </div>
+    </div>
+    </div>
+  </div> <!-- btn group end -->
+
+        <!--only for the author of comment-->
+
+        <div class="comment-display">
+          <a href="/profile/5ea9bcab1f1a2325a17ef9d3" class="post-author-names ">
+            <span class="badge">
+              <img src="https://res.cloudinary.com/unifiq909/image/upload/v1588182475/uni1/wall39bc448184366d0ec66ac63032ddafc26.jpg" class="modal-image-2">
+          </span>parth2</a>
+
+        
+          <div class="comment-div pl-1">
+
+            <p>great</p>
+            <!-- btndropdown -->
+          </div>
+        <!--not for the author of comment-->
+        </div>
+
+        
+        <!-- toggle-comment-edit-form -->
+        <!-- no need of type bcz updating in the pview model -->
+                <div class="toggle-comment-edit-form d-none">
+                  <div class="row d-block mx-1">
+  <!-- no worries where there is post there we can do all the things bcz of our routing -->
+                  <form class="d-inline ed-po-co-form" action="/posts/5ec2cf864da0e02c3277d911/pviews/5ec912370e31eb111c739d5d?_method=PUT" method="POST" id="postEditForm" enctype="application/x-www-form-urlencoded">
+                    <div class="col-12">
+                      <textarea class="input-form-control-com bg-custom-black px-1 autoresizing cursor-at-end forcomment-edit" name="pview[body]" placeholder="Edit Comment..." autofocus="">great</textarea>
+                    </div>
+                    <div class=" bg-custom-black d-inline-block">
+                      <button class="btn d-inline btn-savepost" type="submit">Save<span style="display:inline;"><i class="fas fa-md fa-paper-plane pl-1"></i></span></button>
+
+                      <div class="comment-pic-container">
+                        <!-- image in comments -->
+                      </div>
+                    </div>
+                  </form>
+                      <button class="btn d-inline btn-cancelcomment-edit">Cancel</button>
+
+                  </div>
+                </div>
+        <!--only for the author of comment-->
+            </li>
+<!-- 1)Both are same -->
+  <div class="modal fade" id="partialModal" tabindex="-1" role="dialog" aria-labelledby="partialModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-custom-black">
+        <div class="modal-body">
+          Select "Logout" below if you are ready to end your current session.
+          <button class="btn btn-secondary btn-sm" type="button" style="border:1px solid white" data-dismiss="modal">x</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="post-image-wrapper d-inline p-0 m-0">
+    <div class="each-img-container single-post-image">
+      <img class="cr-post-post-images p-0 pr-img1" src="">
+  </div>
+</div>
+
+<!-- ------------------------- TESTING THE DYNAMIC POST -------------------------- -->
+
+    <form class="new-post-creation-form" action="/posts" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+
+          
+          <input class="input-form-control fordynpostmood m-0 px-3 post-create-count" type="text" name="post[mood]" placeholder="Mood/Feeling. . ." maxlength="50">
+
+
+          <input class="input-form-control-2 px-1 fordynpost m-0 post-create-count" type="text" name="post[title]" placeholder="Title. . ." maxlength="50">
+
+
+          <textarea class="input-form-control-2 px-1 fordynpostbody autoresizing post-create-count" name="post[description]" placeholder="What's u'r opinion ? . . ." maxlength="270"></textarea>
+
+    </form>
+
+      <div class="modal fade" id="videoPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+          <input id="post-create-video" class="d-none multi-video" name="postVideo" type="file" accept="video/mp4,video/x-m4v,video/*"> 
+
+
+      </div>
+
+<!-- //////////////////////////////////////////////////////// -->
+            <div class="img-up-div">
+              <label for="post-create-images" class="text-left btn btn-transparent-gray">
+                      <span><img src="/images/gallery.svg" class="s-left-prof-icons"></span>
+                      <span class=" post-files-title">Select Images</span>
+              </label>
+              <input id="post-create-images" class="d-none" accept="images/*" type="file" multiple name="postImages">
+            </div>
+<!-- /////////////////////////////////////////////////// -->
+  <% layout('layouts/topic-sel-layout') -%>
+
+<!-- <div class="topic-search-cont">
+  <div class="all-topics-container d-block">
+    <input class="icon-topic-search cursor-at-end" type="text" placeholder="Search topic...">
+        <button class="topic-search"></button>
+  </div>      
+</div> -->
+
+<!-- margin-top:2rem is used for showing that search-circle -->
+
+<div class="card" style="margin-top:0rem;"> 
+
+  <div class="card-body topic-index-page py-1 px-2 mx-0" style="border-radius:0.5rem;">
+
+      <div class="parent-container ">
+
+<div class="topic-index-first-half">
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Entertainment</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'entertainment'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="/topics/<%=topic._id%>" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><span title="Verified by Unifiq"><img src="/images/verification-symbol.svg" class="verified-topic"></span><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Movies</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'movies'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Technology</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'technology'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Science</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'science'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Sports</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'sports'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Exploration</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'exploration'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Music</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'music'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3 text-center">
+              <button class="bott-show-more-categories btn btn-custom-blue px-auto" type="button">Explore <i class="fas fa-lg pt-1 fa-rocket"></i> More</button>
+            </div>
+    </div><!-- Topics Row End-->
+
+</div><!-- Topic Index First Half End -->
+
+<div class="topic-index-second-half d-none">
+      <!-- Topic  -->
+    <div class="topics-row">
+
+            <hr  style="border:1px solid #696969;">
+                  <div class="my-3"></div>
+            
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Art & Design</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'art & design'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <% if(topic.logo[0]){ %>
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <% }else{ %>
+                    <div class="topic-logo-div">
+                      <img src="/images/backimg.jpg" class="topic-index-logo">
+                    </div>
+                    <% } %>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">General</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'general'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">History</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'history'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Literature</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'literature'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Games</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'games'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Food & Drink</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'food & drink'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Educational</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'educational'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Business</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'business'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+      <!-- Topic  -->
+    <div class="topics-row">
+
+      <div class="my-1">
+            <h4 class="text-white category-name mb-0 pl-2 mt-2 d-inline">Nature</h4>
+            <!-- <span><img src="/images/adv_category.svg" class="category-pic"></span> -->
+            <br>
+            <a href="#" class="btn btn-sm btn-show-more-topics ml-2">Show more</a>
+          </div>
+
+          <div class="row px-2 px-md-3 text-center">
+
+            
+            <% for(let topic of topics){%>
+
+              <% if(topic.category.title === 'nature'){  %>
+              <div class="col-12 p-2">
+                <div class="custom-topic-black">
+                  <a href="#" class="dec-none">
+                    <div class="topic-logo-div">
+                      <img src="<%= topic.logo[0].url%>" class="topic-index-logo">
+                    </div>
+                    <div>
+                      <p class="topic-name-index-p m-0"><%= topic.title %></p>
+                    </div> 
+                  </a>
+                  <div class="mb-1">
+                    <p class="topic-tagline-index-p m-0"><%= topic.tagline %></p>
+                  </div>
+
+                  <div class="topic-index-tags py-1 float-left text-center">
+                    <% topic.tags.slice(0,4).forEach(function(tag){ %>
+                    <div class="d-inline-flex single-tag px-1 mb-1">
+                      <i class="fas fa-circle mt-1 tag-circle"></i> 
+                      <span class="pl-1"><%= tag %></span>
+                    </div>
+                    <!-- <br> -->
+                    <% }) %>
+
+                  </div>
+
+                  <br>
+
+                  <div class="my-1">
+                    <a href="#">
+                      <p class="topic-category-name m-0"><%= topic.category.title %></p>
+                    </a>
+                  </div>
+
+                  <div class="topic-act-info mb-2 mt-1">
+                <div class="float-left taf-1">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-foll-no"></span>7.9M+ <span>Followers</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->  
+                <div class="float-right taf-2">
+                  <span><i class="fas fa-sm fa-circle mt-0 blue-circle"></i> </span><span class="topic-posts-no">101M+ </span><span>Posts</span>
+                </div>
+                <!--Remember U don't need to count everytime just count after specific time and store it as a no and (eg:-101M+ Posts) like this -->
+                  </div>
+
+                </div>
+              </div>
+
+              <% } %>
+
+            <% } %>
+                                      
+          </div>
+
+
+            <div class="my-3"></div>
+            <hr  style="border:1px solid #696969;">
+    </div><!-- Topics Row End-->
+
+</div><!-- Topic Index Second Half End -->
+
+      </div>
+
+  </div>
+
+</div>
+
+<!-- non-working -->
+
+<img src="/images/https://res.cloudinary.com/unifiq909/image/upload/v1594827724/uni1/background2a774478bdc65f63829b02f63828124b.jpg" alt="user1">
+
+<!-- working -->
+<img src="https://res.cloudinary.com/unifiq909/image/upload/v1594827724/uni1/background2a774478bdc65f63829b02f63828124b.jpg" class="topic-index-logo">
+
+
+<!-- Insane great functionality -->
+              <form class="user" action="/register" method="POST">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input class="form-control form-control-user" id="exampleFirstName" type="text" id="username" name="username" placeholder="Username" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <input class="form-control form-control-user" type="password" id="password" name="password" placeholder="Password" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input class="form-control form-control-user" id="exampleInputEmail" type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+          <div>         
+
+          </div>
+        </div>
+        <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
+
+              </form>
